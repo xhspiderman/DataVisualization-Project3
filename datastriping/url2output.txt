@@ -1,4 +1,3 @@
-http://simpsons.wikia.com/wiki/%22Blow_the_Horn%22_Kid
 http://simpsons.wikia.com/wiki/%22For_Dummies%22_Author
 http://simpsons.wikia.com/wiki/%22Something_New%22_Spuckler_Baby
 http://simpsons.wikia.com/wiki/%22Where_the_Redfern_Grows%22_5th_grader
@@ -237,6 +236,7 @@ http://simpsons.wikia.com/wiki/Bob_Dylan
 http://simpsons.wikia.com/wiki/Bob%27s_Aide
 http://simpsons.wikia.com/wiki/Bob%27s_Merchandising_Team
 http://simpsons.wikia.com/wiki/Boxcar_Bob
+http://simpsons.wikia.com/wiki/Robert_Terwilliger
 http://simpsons.wikia.com/wiki/Shary_Bobbins
 http://simpsons.wikia.com/wiki/Bobby_Mindix
 http://simpsons.wikia.com/wiki/Bobo
@@ -395,10 +395,12 @@ http://simpsons.wikia.com/wiki/George_Cauldron
 http://simpsons.wikia.com/wiki/Cecil_P%C3%A2t%C3%A9
 http://simpsons.wikia.com/wiki/Celeste
 http://simpsons.wikia.com/wiki/Cesar
+http://simpsons.wikia.com/wiki/User:Chakor_Channing
 http://simpsons.wikia.com/wiki/Gary_Chalmers
 http://simpsons.wikia.com/wiki/Channel_6_Wastelanders
 http://simpsons.wikia.com/wiki/Cornelius_Chapman
 http://simpsons.wikia.com/wiki/Template:CharacterMain
+http://simpsons.wikia.com/wiki/Simpsons_Wiki:Project_Characters
 http://simpsons.wikia.com/wiki/Charcoal_Briquette
 http://simpsons.wikia.com/wiki/Charlemagne_Bouvier
 http://simpsons.wikia.com/wiki/Charles_Bronson
@@ -876,6 +878,7 @@ http://simpsons.wikia.com/wiki/Jos%C3%A9_Flanders
 http://simpsons.wikia.com/wiki/Lord_Thistlewick_Flanders
 http://simpsons.wikia.com/wiki/Maude_Flanders
 http://simpsons.wikia.com/wiki/Maude_Flanders_(ghost)
+http://simpsons.wikia.com/wiki/Ned_Flanders
 http://simpsons.wikia.com/wiki/Nedward_Flanders,_Sr.
 http://simpsons.wikia.com/wiki/Rod_Flanders
 http://simpsons.wikia.com/wiki/Ted_Flanders
@@ -1377,12 +1380,14 @@ http://simpsons.wikia.com/wiki/Kang
 http://simpsons.wikia.com/wiki/Fred_Kanneke
 http://simpsons.wikia.com/wiki/Kareem_Abdul-Jabbar
 http://simpsons.wikia.com/wiki/Karen
+http://simpsons.wikia.com/wiki/Karl
 http://simpsons.wikia.com/wiki/Karl_Factfile
 http://simpsons.wikia.com/wiki/Princess_Kashmir
 http://simpsons.wikia.com/wiki/Kate_Lynn%EF%BB%BF
 http://simpsons.wikia.com/wiki/Katelyn
 http://simpsons.wikia.com/wiki/Katelyn_(Waverly_Hills_9-0-2-1-D%27oh)
 http://simpsons.wikia.com/wiki/Katherine_Blodgett
+http://simpsons.wikia.com/wiki/Kathie_Lee_Gifford
 http://simpsons.wikia.com/wiki/Katy_Perry_(character)
 http://simpsons.wikia.com/wiki/Lance_Kaufman
 http://simpsons.wikia.com/wiki/Kavi_Nahasapeemapetilon
@@ -1619,6 +1624,7 @@ http://simpsons.wikia.com/wiki/Mrs._Mann
 http://simpsons.wikia.com/wiki/Avery_Mann
 http://simpsons.wikia.com/wiki/Otto_Mann
 http://simpsons.wikia.com/wiki/Mantis_Burns
+http://simpsons.wikia.com/wiki/Simpsons_Wiki:Manual_of_Style
 http://simpsons.wikia.com/wiki/Marcel_Bouvier
 http://simpsons.wikia.com/wiki/Margarita
 http://simpsons.wikia.com/wiki/Marge_Fraud
@@ -1649,6 +1655,8 @@ http://simpsons.wikia.com/wiki/Mary_Zeke_Spuckler
 http://simpsons.wikia.com/wiki/Mary-Kate_and_Ashley_Olsen_(characters)
 http://simpsons.wikia.com/wiki/Mason_Fairbanks
 http://simpsons.wikia.com/wiki/Master_Sushi_Chef
+http://simpsons.wikia.com/wiki/User:Master212
+http://simpsons.wikia.com/wiki/User_talk:Master212
 http://simpsons.wikia.com/wiki/Math_teacher
 http://simpsons.wikia.com/wiki/Mathemagician
 http://simpsons.wikia.com/wiki/Don_Mattingly
@@ -1888,6 +1896,7 @@ http://simpsons.wikia.com/wiki/Nature%27s_Goodness
 http://simpsons.wikia.com/wiki/Nazis_on_Tap
 http://simpsons.wikia.com/wiki/Alaska_Nebraska
 http://simpsons.wikia.com/wiki/Nedgar_Flanders
+http://simpsons.wikia.com/wiki/User:NedGrabiec
 http://simpsons.wikia.com/wiki/Nediana_Flanders
 http://simpsons.wikia.com/wiki/Nedmond_Flanders
 http://simpsons.wikia.com/wiki/Nedna_Flanders
@@ -1916,6 +1925,7 @@ http://simpsons.wikia.com/wiki/Nichelle_Nichols_(character)
 http://simpsons.wikia.com/wiki/Nick_(1)
 http://simpsons.wikia.com/wiki/Nick_(2)
 http://simpsons.wikia.com/wiki/Nick_(The_Daughter_Also_Rises)
+http://simpsons.wikia.com/wiki/Nick_Aphrodite
 http://simpsons.wikia.com/wiki/Nick_Callahan
 http://simpsons.wikia.com/wiki/Nick_Fury
 http://simpsons.wikia.com/wiki/Nicole_DeVille
@@ -2032,6 +2042,7 @@ http://simpsons.wikia.com/wiki/Phony_McRing-Ring
 http://simpsons.wikia.com/wiki/Photo_Girl
 http://simpsons.wikia.com/wiki/Pie_Man
 http://simpsons.wikia.com/wiki/Arnie_Pye
+http://simpsons.wikia.com/wiki/Pieman_of_the_World
 http://simpsons.wikia.com/wiki/Pierre_Bouvier
 http://simpsons.wikia.com/wiki/Pig_Man_Wiggum
 http://simpsons.wikia.com/wiki/Pig_of_Eden
@@ -2145,10 +2156,14 @@ http://simpsons.wikia.com/wiki/The_Raven_(character)
 http://simpsons.wikia.com/wiki/The_Raven_Narrator
 http://simpsons.wikia.com/wiki/The_Raving_Derelict
 http://simpsons.wikia.com/wiki/Raymond_Bird
+http://simpsons.wikia.com/wiki/User:REALNerfNinja6
 http://simpsons.wikia.com/wiki/Grim_Reaper
 http://simpsons.wikia.com/wiki/Receptionist
 http://simpsons.wikia.com/wiki/Red_Headed_Employee
 http://simpsons.wikia.com/wiki/Red-haired_kid
+http://simpsons.wikia.com/wiki/Ref
+http://simpsons.wikia.com/wiki/Reformed_Dad
+http://simpsons.wikia.com/wiki/Regis_Philbin
 http://simpsons.wikia.com/wiki/Reilly_Muntz
 http://simpsons.wikia.com/wiki/Remedial_Class_Teacher
 http://simpsons.wikia.com/wiki/Remus_Krupp
@@ -2339,6 +2354,7 @@ http://simpsons.wikia.com/wiki/Simon_Woosterfield
 http://simpsons.wikia.com/wiki/Abigail_Simpson
 http://simpsons.wikia.com/wiki/Abraham_Simpson
 http://simpsons.wikia.com/wiki/Amber_Simpson
+http://simpsons.wikia.com/wiki/Bart_Simpson
 http://simpsons.wikia.com/wiki/Bart_Simpson,_Jr.
 http://simpsons.wikia.com/wiki/Bill_Simpson
 http://simpsons.wikia.com/wiki/Bonita_Simpson
@@ -2352,6 +2368,7 @@ http://simpsons.wikia.com/wiki/Floyd_Simpson
 http://simpsons.wikia.com/wiki/Forrest_Simpson
 http://simpsons.wikia.com/wiki/Garwood_Simpson
 http://simpsons.wikia.com/wiki/Hiram_Simpson
+http://simpsons.wikia.com/wiki/Homer_Simpson
 http://simpsons.wikia.com/wiki/Homer_Simpson_(Police_Cops)
 http://simpsons.wikia.com/wiki/Hortense_Simpson
 http://simpsons.wikia.com/wiki/Howland_Simpson
@@ -2481,6 +2498,7 @@ http://simpsons.wikia.com/wiki/Birthday_Spuckler
 http://simpsons.wikia.com/wiki/Brandine_Spuckler
 http://simpsons.wikia.com/wiki/Caitlin_Spuckler
 http://simpsons.wikia.com/wiki/Cassidy_Spuckler
+http://simpsons.wikia.com/wiki/Cletus_Spuckler
 http://simpsons.wikia.com/wiki/Dermott_Spuckler
 http://simpsons.wikia.com/wiki/Jordan_Spuckler
 http://simpsons.wikia.com/wiki/Gummy_Sue_Spuckler
@@ -2784,6 +2802,8 @@ http://simpsons.wikia.com/wiki/Viktor
 http://simpsons.wikia.com/wiki/Viktor%27s_wife
 http://simpsons.wikia.com/wiki/Adriatica_Vel_Johnson
 http://simpsons.wikia.com/wiki/Vinca_Trousseau
+http://simpsons.wikia.com/wiki/User:Viniciusme
+http://simpsons.wikia.com/wiki/User:Viniciusme/Vinicius_Mel%C3%A3o
 http://simpsons.wikia.com/wiki/Miss_Viola
 http://simpsons.wikia.com/wiki/Virgil_St.Clair
 http://simpsons.wikia.com/wiki/Virgin_Mary_statue
@@ -2856,6 +2876,7 @@ http://simpsons.wikia.com/wiki/Wilma_Flintstone
 http://simpsons.wikia.com/wiki/Dr._Wilmore
 http://simpsons.wikia.com/wiki/Mr._Winfield
 http://simpsons.wikia.com/wiki/Sylvia_Winfield
+http://simpsons.wikia.com/wiki/Winifred_Trout
 http://simpsons.wikia.com/wiki/Wink
 http://simpsons.wikia.com/wiki/Emily_Winthrop
 http://simpsons.wikia.com/wiki/Witch_(Treehouse_of_Horror_XVI)
@@ -2912,6 +2933,7 @@ http://simpsons.wikia.com/wiki/Zsa_Zsa_DeBoeuf
 http://simpsons.wikia.com/wiki/Mark_Zuckerberg_(character)
 http://simpsons.wikia.com/wiki/Zutroy
 http://simpsons.wikia.com/wiki/Dr._Zweig
+http://simpsons.wikia.com/wiki/User:Zxxzs
 http://simpsons.wikia.com/wiki/Mr._Zzyzwicz
 http://simpsons.wikia.com/wiki/Kearney_Zzyzwicz
 http://simpsons.wikia.com/wiki/%C3%9Cter_Z%C3%B6rker

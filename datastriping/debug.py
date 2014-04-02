@@ -11,7 +11,8 @@ soup = BeautifulSoup(page)
 character=soup.find(id='WikiaPageHeader').find('h1').string
 
 #  get the episodes the character is in
-checkDIV=soup.find_all(id=re.compile("^Appearance"))[-1]
+checkDIV=soup.find(id='mw-content-text').find_all('img')[0]['data-src']
+pdb.set_trace()
 
 if checkDIV:
 	#pdb.set_trace()

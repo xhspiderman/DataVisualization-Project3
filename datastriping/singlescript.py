@@ -1,4 +1,4 @@
-# This is the script for grabbing the content out of one specific website
+# This is the script for grabbing the content out of one specific website (tweak for the urls that are different)
 import urllib2
 from bs4 import BeautifulSoup
 import pdb
