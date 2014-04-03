@@ -1,5 +1,5 @@
 # This is the script for grabbing the content out of a group of websites specified in url2output.txt file
-#Tuned for grabbing the content of Wikisimpsons.com (Characters,episodes and image files) out of one specific website
+#Tuned for grabbing the content of Wikisimpsons.com (Characters and episodes) out of one specific website
 
 import urllib2
 from bs4 import BeautifulSoup
