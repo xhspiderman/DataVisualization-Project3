@@ -1,0 +1,1659 @@
+"Bart the General"
+"Bart the Genius"
+"The Call of the Simpsons"
+"The Crepes of Wrath"
+"Homer's Night Out"
+"Homer's Odyssey"
+"Krusty Gets Busted"
+"Life on the Fast Lane"
+"Moaning Lisa"
+"Simpsons Roasting on an Open Fire"
+"Some Enchanted Evening"
+"The Telltale Head"
+"There's No Disgrace Like Home"
+"Bart Gets an "F""
+"Bart Gets Hit by a Car"
+"Bart the Daredevil"
+"Bart vs. Thanksgiving"
+"Bart's Dog Gets an F"
+"Blood Feud"
+"Brush with Greatness"
+"Dancin' Homer"
+"Dead Putting Society"
+"Homer vs. Lisa and the 8th Commandment"
+"Itchy & Scratchy & Marge"
+"Lisa's Substitute"
+"Oh Brother, Where Art Thou?"
+"Old Money"
+"One Fish, Two Fish, Blowfish, Blue Fish"
+"Principal Charming"
+"Simpson and Delilah"
+"Three Men and a Comic Book"
+"Treehouse of Horror"
+"Two Cars in Every Garage and Three Eyes on Every Fish"
+"The War of the Simpsons"
+"The Way We Was"
+"Bart the Lover"
+"Bart the Murderer"
+"Bart's Friend Falls in Love"
+"Black Widower"
+"Brother, Can You Spare Two Dimes?"
+"Burns Verkaufen der Kraftwerk"
+"Colonel Homer"
+"Dog of Death"
+"Flaming Moe's"
+"Homer Alone"
+"Homer at the Bat"
+"Homer Defined"
+"I Married Marge"
+"Like Father, Like Clown"
+"Lisa the Greek"
+"Lisa's Pony"
+"Mr. Lisa Goes to Washington"
+"The Otto Show"
+"Radio Bart"
+"Saturdays of Thunder"
+"Separate Vocations"
+"Stark Raving Dad"
+"Treehouse of Horror II"
+"When Flanders Failed"
+"Brother from the Same Planet"
+"Duffless"
+"The Front"
+"Homer the Heretic"
+"Homer's Triple Bypass"
+"I Love Lisa"
+"Itchy & Scratchy: The Movie"
+"Kamp Krusty"
+"Krusty Gets Kancelled"
+"Last Exit to Springfield"
+"Lisa the Beauty Queen"
+"Lisa's First Word"
+"Marge Gets a Job"
+"Marge in Chains"
+"Marge vs. the Monorail"
+"Mr. Plow"
+"New Kid on the Block"
+"Selma's Choice"
+"So It's Come to This: A Simpsons Clip Show"
+"A Streetcar Named Marge"
+"Treehouse of Horror III"
+"Whacking Day"
+"Bart Gets an Elephant"
+"Bart Gets Famous"
+"Bart's Inner Child"
+"The Boy Who Knew Too Much"
+"Boy-Scoutz 'n the Hood"
+"Burns' Heir"
+"Cape Feare"
+"Deep Space Homer"
+"Homer and Apu"
+"Homer Goes to College"
+"Homer Loves Flanders"
+"Homer the Vigilante"
+"Homer's Barbershop Quartet"
+"Lady Bouvier's Lover"
+"The Last Temptation of Homer"
+"Lisa vs. Malibu Stacy"
+"Marge on the Lam"
+"Rosebud"
+"Secrets of a Successful Marriage"
+"$pringfield (Or, How I Learned to Stop Worrying and Love Legalized Gambling)"
+"Sweet Seymour Skinner's Baadasssss Song"
+"Treehouse of Horror IV"
+"And Maggie Makes Three"
+"Another Simpsons Clip Show"
+"Bart of Darkness"
+"Bart vs. Australia"
+"Bart's Comet"
+"Bart's Girlfriend"
+"Fear of Flying"
+"Grampa vs. Sexual Inadequacy"
+"Homer Badman"
+"Homer the Great"
+"Homer vs. Patty and Selma"
+"Homie the Clown"
+"Itchy & Scratchy Land"
+"Lemon of Troy"
+"Lisa on Ice"
+"Lisa's Rival"
+"Lisa's Wedding"
+"The PTA Disbands"
+"'Round Springfield"
+"Sideshow Bob Roberts"
+"The Springfield Connection"
+"A Star is Burns"
+"Treehouse of Horror V"
+"Two Dozen and One Greyhounds"
+"Who Shot Mr. Burns? (Part One)"
+"22 Short Films About Springfield"
+"A Fish Called Selma"
+"Bart on the Road"
+"Bart Sells His Soul"
+"Bart the Fink"
+"The Day the Violence Died"
+"Home Sweet Homediddly-Dum-Doodily"
+"Homer the Smithers"
+"Homerpalooza"
+"King-Size Homer"
+"Lisa the Iconoclast"
+"Lisa the Vegetarian"
+"Marge Be Not Proud"
+"Mother Simpson"
+"Much Apu About Nothing"
+"Radioactive Man"
+"Raging Abe Simpson and His Grumbling Grandson in "The Curse of the Flying Hellfish""
+"Scenes from the Class Struggle in Springfield"
+"Sideshow Bob's Last Gleaming"
+"The Simpsons 138th Episode Spectacular"
+"Summer of 4 Ft. 2"
+"Team Homer"
+"Treehouse of Horror VI"
+"Two Bad Neighbors"
+"Who Shot Mr. Burns? (Part Two)"
+"Bart After Dark"
+"Brother from Another Series"
+"Burns, Baby Burns"
+"The Canine Mutiny"
+"El Viaje Misterioso de Nuestro Jomer (The Mysterious Voyage of Homer)"
+"Grade School Confidential"
+"The Homer They Fall"
+"Homer vs. the Eighteenth Amendment"
+"Homer's Enemy"
+"Homer's Phobia"
+"Hurricane Neddy"
+"In Marge We Trust"
+"The Itchy & Scratchy & Poochie Show"
+"Lisa's Date with Density"
+"A Milhouse Divided"
+"Mountain of Madness"
+"My Sister, My Sitter"
+"The Old Man and the Lisa"
+"The Secret War of Lisa Simpson"
+"Simpsoncalifragilisticexpiala(Annoyed Grunt)cious"
+"The Simpsons Spin-Off Showcase"
+"The Springfield Files"
+"Treehouse of Horror VII"
+"The Twisted World of Marge Simpson"
+"You Only Move Twice"
+"All Singing, All Dancing"
+"Bart Carny"
+"Bart Star"
+"The Cartridge Family"
+"The City of New York vs. Homer Simpson"
+"Das Bus"
+"Dumbbell Indemnity"
+"Girly Edition"
+"The Joy of Sect"
+"King of the Hill"
+"The Last Temptation of Krust"
+"Lisa the Simpson"
+"Lisa the Skeptic"
+"Lisa's Sax"
+"Lost Our Lisa"
+"Miracle on Evergreen Terrace"
+"Natural Born Kissers"
+"The Principal and the Pauper"
+"Realty Bites"
+"Simpson Tide"
+"This Little Wiggy"
+"Trash of the Titans"
+"Treehouse of Horror VIII"
+"The Trouble with Trillions"
+"The Two Mrs. Nahasapeemapetilons"
+"Bart the Mother"
+"D'oh-in' in the Wind"
+"Homer Simpson in: "Kidney Trouble""
+"Homer to the Max"
+"I'm with Cupid"
+"Lard of the Dance"
+"Lisa Gets an "A""
+"Make Room for Lisa"
+"Marge Simpson in: "Screaming Yellow Honkers""
+"Maximum Homerdrive"
+"Mayored to the Mob"
+"Mom and Pop Art"
+"Monty Can't Buy Me Love"
+"The Old Man and the "C" Student"
+"Simpsons Bible Stories"
+"Sunday, Cruddy Sunday"
+"They Saved Lisa's Brain"
+"Thirty Minutes Over Tokyo"
+"Treehouse of Horror IX"
+"Viva Ned Flanders"
+"When You Dish Upon a Star"
+"Wild Barts Can't Be Broken"
+"The Wizard of Evergreen Terrace"
+"Alone Again, Natura-Diddily"
+"Bart to the Future"
+"Behind the Laughter"
+"Beyond Blunderdome"
+"Brother's Little Helper"
+"Days of Wine and D'oh'ses"
+"E-I-E-I-D'oh"
+"Eight Misbehavin'"
+"Faith Off"
+"Grift of the Magi"
+"Guess Who's Coming to Criticize Dinner?"
+"Hello Gutter, Hello Fadder"
+"It's a Mad, Mad, Mad, Mad Marge"
+"Kill the Alligator and Run"
+"Last Tap Dance in Springfield"
+"Little Big Mom"
+"The Mansion Family"
+"Missionary: Impossible"
+"Pygmoelian"
+"Saddlesore Galactica"
+"Take My Wife, Sleaze"
+"Treehouse of Horror X"
+"Bye Bye Nerdie"
+"Children of a Lesser Clod"
+"The Computer Wore Menace Shoes"
+"Day of the Jackanapes"
+"The Great Money Caper"
+"Homer vs. Dignity"
+"HOMЯ"
+"Hungry, Hungry Homer"
+"I'm Goin' to Praiseland"
+"Insane Clown Poppy"
+"Lisa the Tree Hugger"
+"New Kids on the Blecch"
+"Pokey Mom"
+"Simpson Safari"
+"Simpsons Tall Tales"
+"Skinner's Sense of Snow"
+"A Tale of Two Springfields"
+"Tennis the Menace"
+"Treehouse of Horror XI"
+"Trilogy of Error"
+"Worst Episode Ever"
+"A Hunka Hunka Burns in Love"
+"The Bart Wants What It Wants"
+"Blame It on Lisa"
+"The Blunder Years"
+"Brawl in the Family"
+"The Frying Game"
+"Gump Roast"
+"Half-Decent Proposal"
+"Homer the Moe"
+"I Am Furious Yellow"
+"Jaws Wired Shut"
+"The Lastest Gun in the West"
+"Little Girl in the Big Ten"
+"The Old Man and the Key"
+"The Parent Rap"
+"Poppa's Got a Brand New Badge"
+"She of Little Faith"
+"The Sweetest Apu"
+"Sweets and Sour Marge"
+"Tales from the Public Domain"
+"Treehouse of Horror XII"
+"Weekend at Burnsie's"
+"The Bart of War"
+"Bart vs. Lisa vs. the Third Grade"
+"Barting Over"
+"Brake My Wife, Please"
+"C.E. D'oh"
+"The Dad Who Knew Too Little"
+"Dude, Where's My Ranch?"
+"The Great Louse Detective"
+"Helter Shelter"
+"How I Spent My Strummer Vacation"
+"I'm Spelling as Fast as I Can"
+"Large Marge"
+"Moe Baby Blues"
+"Mr. Spritz Goes to Washington"
+"Old Yeller-Belly"
+"Pray Anything"
+"'Scuse Me While I Miss the Sky"
+"Special Edna"
+"A Star Is Born-Again"
+"The Strong Arms of the Ma"
+"Three Gays of the Condo"
+"Treehouse of Horror XIII"
+"Bart-Mangled Banner"
+"Catch 'Em if You Can"
+"Co-Dependent's Day"
+"Diatribe of a Mad Housewife"
+"The Fat and the Furriest"
+"Fraudcast News"
+"I, (Annoyed Grunt)-Bot"
+"Marge vs. Singles, Seniors, Childless Couples and Teens and Gays"
+"Margical History Tour"
+"Milhouse Doesn't Live Here Anymore"
+"My Big Fat Geek Wedding"
+"My Mother the Carjacker"
+"The President Wore Pearls"
+"The Regina Monologues"
+"Simple Simpson"
+"Smart and Smarter"
+"The Way We Weren't"
+"'Tis the Fifteenth Season"
+"Today, I Am a Clown"
+"Treehouse of Horror XIV"
+"The Wandering Juvie"
+"The Ziff Who Came to Dinner"
+"A Star is Torn"
+"All's Fair in Oven War"
+"Don't Fear the Roofer"
+"Fat Man and Little Boy"
+"The Father, the Son and the Holy Guest Star"
+"Future-Drama"
+"Goo Goo Gai Pan"
+"The Heartbroke Kid"
+"Home Away from Homer"
+"Homer and Ned's Hail Mary Pass"
+"Midnight Rx"
+"Mobile Homer"
+"Mommie Beerest"
+"On a Clear Day I Can't See My Sister"
+"Pranksta Rap"
+"The Seven-Beer Snitch"
+"She Used to Be My Girl"
+"Sleeping with the Enemy"
+"Thank God It's Doomsday"
+"There's Something About Marrying"
+"Treehouse of Horror XV"
+"Bart Has Two Mommies"
+"Bonfire of the Manatees"
+"The Girl Who Slept Too Little"
+"Girls Just Want to Have Sums"
+"Homer Simpson, This Is Your Wife"
+"Homer's Paternity Coot"
+"The Italian Bob"
+"Kiss Kiss Bang Bangalore"
+"The Last of the Red Hat Mamas"
+"Marge and Homer Turn a Couple Play"
+"Marge's Son Poisoning"
+"Milhouse of Sand and Fog"
+"Million Dollar Abie"
+"The Monkey Suit"
+"My Fair Laddy"
+"Regarding Margie"
+"See Homer Run"
+"The Seemingly Never-Ending Story"
+"Simpson Christmas Stories"
+"Treehouse of Horror XVI"
+"We're on the Road to D'oh-where"
+"The Wettest Stories Ever Told"
+"24 Minutes"
+"The Boys of Bummer"
+"Crook and Ladder"
+"G.I. (Annoyed Grunt)"
+"The Haw-Hawed Couple"
+"Homerazzi"
+"Ice Cream of Margie (with the Light Blue Hair)"
+"Jazzy and the Pussycats"
+"Kill Gil: Vols. 1 & 2"
+"Little Big Girl"
+"Marge Gamer"
+"Moe'N'a Lisa"
+"The Mook, the Chef, the Wife and Her Homer"
+"Please Homer, Don't Hammer 'Em"
+"Revenge is a Dish Best Served Three Times"
+"Rome-Old and Julie-Eh"
+"Springfield Up"
+"Stop or My Dog Will Shoot!"
+"Treehouse of Horror XVII"
+"The Wife Aquatic"
+"Yokel Chords"
+"You Kent Always Say What You Want"
+"All About Lisa"
+"Any Given Sundance"
+"Apocalypse Cow"
+"The Debarted"
+"Dial "N" for Nerder"
+"E. Pluribus Wiggum"
+"Eternal Moonshine of the Simpson Mind"
+"Funeral for a Fiend"
+"He Loves to Fly and He D'ohs"
+"The Homer of Seville"
+"Husbands and Knives"
+"I Don't Wanna Know Why the Caged Bird Sings"
+"Little Orphan Millie"
+"Love, Springfieldian Style"
+"Midnight Towboy"
+"Mona Leaves-a"
+"Papa Don't Leech"
+"Smoke on the Daughter"
+"That '90s Show"
+"Treehouse of Horror XVIII"
+"The Burns and the Bees"
+"Coming to Homerica"
+"Dangerous Curves"
+"Double, Double, Boy in Trouble"
+"Eeny Teeny Maya, Moe"
+"Father Knows Worst"
+"Four Great Women and a Manicure"
+"Gone Maggie Gone"
+"The Good, the Sad and the Drugly"
+"Homer and Lisa Exchange Cross Words"
+"How the Test Was Won"
+"In the Name of the Grandfather"
+"Lisa the Drama Queen"
+"Lost Verizon"
+"Mypods and Boomsticks"
+"No Loan Again, Naturally"
+"Sex, Pies, and Idiot Scrapes"
+"Take My Life, Please"
+"Treehouse of Horror XIX"
+"Waverly Hills 9-0-2-1-(Annoying Grunt)"
+"Wedding for Disaster"
+"American History X-cellent"
+"Bart Gets a "Z""
+"The Bob Next Door"
+"Boy Meets Curl"
+"Chief of Hearts"
+"The Color Yellow"
+"The Devil Wears Nada"
+"The Great Wife Hope"
+"The Greatest Story Ever D'ohed"
+"Homer the Whopper"
+"Judge Me Tender"
+"Million Dollar Maybe"
+"Moe Letter Blues"
+"O Brother, Where Bart Thou?"
+"Once Upon a Time in Springfield"
+"Postcards From the Wedge"
+"Pranks and Greens"
+"Rednecks and Broomsticks"
+"The Squirt and the Whale"
+"Stealing First Base"
+"Thursdays with Abie"
+"To Surveil With Love"
+"Treehouse of Horror XX"
+"500 Keys"
+"A Midsummer's Nice Dream"
+"Angry Dad: The Movie"
+"The Blue and the Gray"
+"Donnie Fatso"
+"Elementary School Musical"
+"The Fight Before Christmas"
+"Flaming Moe"
+"The Fool Monty"
+"Homer Scissorhands"
+"Homer the Father"
+"How Munched Is That Birdie in the Window?"
+"Lisa Simpson, This Isn't Your Life"
+"Loan-a Lisa"
+"Love is a Many Strangled Thing"
+"Moms I'd Like to Forget"
+"MoneyBART"
+"The Great Simpsina"
+"The Ned-liest Catch"
+"The Real Housewives of Fat Tony"
+"The Scorpion's Tale"
+"Treehouse of Horror XXI"
+"A Totally Fun Thing That Bart Will Never Do Again"
+"At Long Last Leave"
+"Bart Stops to Smell the Roosevelts"
+"Beware My Cheating Bart"
+"Exit Through the Kwik-E-Mart"
+"Holidays of Future Passed"
+"How I Wet Your Mother"
+"Lisa Goes Gaga"
+"Moe Goes from Rags to Riches"
+"Ned 'N Edna's Blend"
+"Politically Inept, with Homer Simpson"
+"Replaceable You"
+"The Book Job"
+"The D'oh-cial Network"
+"The Daughter Also Rises"
+"The Falcon and the D'ohman"
+"The Food Wife"
+"The Man in the Blue Flannel Pants"
+"The Spy Who Learned Me"
+"The Ten-Per-Cent-Solution"
+"Them, Robot"
+"Treehouse of Horror XXII"
+"A Test Before Trying"
+"A Tree Grows in Springfield"
+"Adventures in Baby-Getting"
+"Black-eyed Please"
+"Changing of the Guardian"
+"Dangers on a Train"
+"Dark Knight Court"
+"The Fabulous Faker Boy"
+"Gone Abie Gone"
+"Gorgeous Grampa"
+"Hardly Kirk-ing"
+"Homer Goes to Prep School"
+"Love is a Many Splintered Thing"
+"Moonshine River"
+"Penny-Wiseguys"
+"Pulpit Friction"
+"The Saga of Carl"
+"The Day the Earth Stood Cool"
+"To Cur, with Love"
+"Treehouse of Horror XXIII"
+"What Animated Women Want"
+"Whiskey Business"
+"Brick Like Me"
+"Days of Future Future"
+"Diggs"
+"Four Regrettings and a Funeral"
+"Homerland"
+"Labor Pains"
+"Luca$"
+"Married to the Blob"
+"Pay Pal"
+"Simpsorama"
+"Specs and the City"
+"Steal This Episode"
+"The Kid is All Right"
+"The Man Who Came to Be Dinner"
+"The Man Who Grew Too Much"
+"The War of Art"
+"The Winter of His Content"
+"Treehouse of Horror XXIV"
+"What to Expect When Bart's Expecting"
+"White Christmas Blues"
+"Yellow Subterfuge"
+"Yolo"
+"You Don't Have to Live Like a Referee"
+5
+2
+7
+11
+10
+3
+12
+9
+6
+1
+13
+8
+4
+14
+23
+21
+20
+29
+35
+31
+18
+19
+26
+22
+32
+28
+30
+24
+27
+15
+34
+16
+17
+33
+25
+51
+39
+58
+56
+59
+46
+55
+54
+45
+50
+52
+40
+47
+41
+49
+43
+37
+57
+48
+44
+53
+1
+42
+38
+73
+75
+78
+62
+70
+74
+65
+60
+81
+76
+63
+69
+66
+80
+71
+68
+67
+72
+77
+61
+64
+79
+98
+93
+88
+101
+89
+99
+83
+96
+94
+84
+97
+92
+82
+102
+90
+95
+87
+85
+103
+91
+100
+86
+116
+106
+104
+119
+117
+110
+114
+113
+112
+115
+120
+118
+107
+127
+111
+105
+122
+124
+125
+108
+126
+121
+109
+123
+128
+149
+147
+148
+132
+143
+146
+131
+145
+152
+135
+144
+133
+139
+136
+151
+130
+150
+142
+137
+138
+153
+140
+134
+141
+129
+158
+169
+157
+173
+162
+172
+156
+171
+176
+168
+161
+175
+167
+160
+159
+165
+170
+174
+178
+166
+177
+163
+154
+164
+155
+189
+190
+184
+183
+179
+192
+194
+199
+191
+201
+193
+195
+186
+181
+202
+188
+203
+180
+187
+197
+196
+200
+182
+198
+185
+206
+209
+211
+216
+217
+204
+210
+219
+218
+220
+212
+222
+224
+223
+221
+215
+225
+226
+207
+213
+208
+214
+205
+240
+243
+248
+227
+228
+244
+231
+233
+237
+235
+229
+232
+247
+245
+246
+236
+238
+241
+242
+239
+234
+230
+264
+268
+254
+261
+255
+253
+257
+263
+267
+251
+252
+262
+258
+265
+269
+256
+250
+260
+249
+266
+259
+273
+280
+284
+274
+276
+290
+286
+279
+272
+288
+278
+281
+289
+282
+271
+291
+275
+288
+277
+283
+270
+285
+312
+294
+302
+311
+306
+299
+309
+297
+296
+293
+303
+295
+313
+305
+310
+301
+307
+298
+304
+300
+308
+292
+334
+331
+328
+323
+318
+335
+322
+321
+324
+325
+330
+315
+316
+317
+332
+326
+333
+320
+319
+314
+329
+327
+353
+337
+351
+340
+356
+350
+347
+352
+355
+343
+341
+348
+342
+346
+344
+349
+339
+338
+354
+345
+336
+370
+357
+358
+375
+371
+366
+364
+373
+363
+378
+361
+359
+372
+377
+368
+376
+362
+369
+365
+360
+367
+374
+399
+396
+397
+383
+386
+394
+385
+380
+387
+390
+395
+384
+379
+381
+389
+393
+391
+398
+382
+388
+392
+400
+420
+418
+417
+413
+414
+410
+409
+408
+401
+402
+407
+404
+406
+412
+403
+419
+416
+415
+411
+405
+428
+441
+425
+423
+436
+438
+440
+433
+437
+426
+431
+434
+429
+422
+427
+432
+421
+430
+424
+439
+435
+458
+443
+463
+453
+459
+454
+446
+444
+457
+442
+464
+452
+462
+449
+451
+455
+447
+448
+460
+456
+450
+461
+445
+485
+480
+478
+477
+473
+465
+472
+475
+470
+484
+476
+471
+469
+466
+481
+474
+467
+482
+486
+483
+479
+468
+505
+500
+488
+504
+501
+495
+502
+508
+498
+507
+496
+490
+492
+497
+499
+487
+491
+493
+506
+494
+503
+489
+518
+514
+511
+523
+519
+530
+524
+528
+512
+522
+521
+517
+520
+509
+513
+526
+529
+515
+516
+510
+525
+527
+551
+548
+542
+533
+531
+535
+547
+540
+0
+0
+541
+539
+536
+0
+543
+545
+544
+532
+0
+538
+537
+534
+546
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+10
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+11
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+12
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+13
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+15
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+16
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+17
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+18
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+19
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+20
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+21
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+22
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+23
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+24
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
+25
