@@ -73,12 +73,12 @@ for source in sources:
 		character_gender ="unknown"
 	print(character+ " " + character_hair + " " + image)
 	# outtput the result as one to one data format into result file
-	resultFile.write('"'+character.encode('UTF-8')+'"'+'   ')
+	resultFile.write(character.encode('UTF-8')+'***')
 	#resultFile.write('"'+character_gender.encode('UTF-8')+'"'+'   ')
 	#resultFile.write('"'+character_status.encode('UTF-8')+'"'+'   ')
-	resultFile.write('"'+character_hair.encode('UTF-8')+'"'+'   ')
+	resultFile.write(character_hair.encode('UTF-8')+'***')
 	#resultFile.write('"'+character_occupation.encode('UTF-8')+'"'+'   ')
 	#resultFile.write('"'+character_voicedBy.encode('UTF-8')+'"'+'   ')
-	resultFile.write('"'+image.encode('UTF-8')+'"'+'   ')
+	resultFile.write(image.encode('UTF-8')+'***')
 	resultFile.write('\n')
 resultFile.close()
