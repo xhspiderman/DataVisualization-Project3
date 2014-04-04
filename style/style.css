@@ -2,3 +2,14 @@
 	position:absolute;
 	top:50px;
 }
+.canvas{
+	top:10px;
+    width: 1280px;
+    height: 720px;
+    border: 1px solid black;
+}
+.image{
+	border:2px solid;
+	border-radius:100px;
+	position:absolute;
+}
