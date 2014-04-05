@@ -25,5 +25,10 @@
 .navbar {
 	z-index:1;
 }
-
-#
+#character_select{
+	position: relative;
+	top:100px;
+	left:150px;
+	width: 1000px;
+	height: 50px;
+}
