@@ -36,11 +36,10 @@ function collage(){
 }
 //function to create character selector
 function paintSelector(){
-	var data = []
-	for (var i=0;i<22;i++){
-		data.push(character.info[i])
-	}
-	var canvas = d3.select("#about")
+	console.log('executing')
+	var data2 = characters_info_DB().limit(22).get()
+	
+	var canvas = d3.select("#home")
 		        .append('div')
 		        .attr('class', 'canvas')
 		        .append('div')
@@ -52,7 +51,7 @@ function paintSelector(){
 	canvas.append('button')
 		    .attr('id','right');
 	var img = d3.select("#character_select").selectAll("img")
-		    		.data(data)
+		    		.data(data2)
 		    		.enter()
 		    		.append('img')
 		    		.attr('class','image')
@@ -64,6 +63,7 @@ function paintSelector(){
 		    			if(i==20) return 27;
 		    			if(i==21) return 15;
 		    			else return 55;
+		    			// return 55
 		    		})
 		    		.attr('height',function(d,i){
 		    			if(i==0) return 15;
@@ -73,6 +73,7 @@ function paintSelector(){
 		    			if(i==20) return 27;
 		    			if(i==21) return 15;
 		    			else return 55;
+		    			// return 55
 		    		})
 		    		.attr('src',function(d){
 		    			return d.image;

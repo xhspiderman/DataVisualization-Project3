@@ -1,5 +1,4 @@
-var episodes={
-  info :[
+var episodes_info=[
   {
     "episodeName":"What to Expect When Bart's Expecting",
     "episodeNum":0,
@@ -2766,4 +2765,3 @@ var episodes={
     "seasonNum":25
   }
 ]
-};

@@ -1,5 +1,4 @@
-var character={
-    info :[
+var characters_info=[
   {
     "name":"Blow the Horn Kid",
     "hair":" Dark brown or Black",
@@ -14586,4 +14585,3 @@ var character={
     "image":"http://img2.wikia.nocookie.net/__cb20130930033445/simpsons/images/thumb/9/9b/Donut.png/40px-Donut.png"
   }
 ]
-};

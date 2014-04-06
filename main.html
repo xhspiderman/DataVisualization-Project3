@@ -8,9 +8,23 @@
     <script src="lib/jquery/jquery-1.11.0.min.js"></script>
     <script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="lib/taffy/taffy.js"></script>
     <!--Internal js files-->
-    <script src="data/episode.json"></script>
-    <script src="data/characters_info.json"></script>
+    <script src="data/episodes.js"></script>
+    <script src="data/episodes_info.js"></script>
+    <script src="data/characters.js"></script>
+    <script src="data/characters_info.js"></script>
+    <script src="data/locations.js"></script>
+    <!-- importing database -->
+    <script>
+
+    var episodes_DB = TAFFY(episodes); //Episodes from Andy
+    var episodes_info_DB = TAFFY(episodes_info); //Episodes with image from us
+    var characters_DB = TAFFY(characters);    // Characters from Andy
+    var characters_info_DB = TAFFY(characters_info); // characters with image from us
+    var locations_DB = TAFFY(locations);  //locations from Andy
+ 
+    </script>
     <!--Stylesheets-->
     <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
