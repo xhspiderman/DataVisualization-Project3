@@ -85,15 +85,6 @@ function paintCharacters(){
 
 function paintEpisodes(){
 	var data = episodes_info_DB().limit(22).get();
-	var positioning = [];
-	var scaled_data =[];
-	var linearScale = d3.scale.linear()
-                   .domain([0,1000])
-                   .range([0,100]);
-	/*for (var i=0; i<22;i++){
-		positioning.push(i*50);
-		newScaledData[i] = linearScale(initialScaleData[i]);
-	}*/
 	var episodes_select = d3.select(".canvas")
 			        .append('div')
 			        .attr('id','episodes_select')
