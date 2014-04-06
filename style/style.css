@@ -43,14 +43,14 @@
 	height: 50px;
 }
 
-#left{
+.left{
 	position:relative;
 	float:left;
 	width:30px;
 	height:30px;
 }
 
-#right{
+.right{
 	position:relative;
 	float:right;
 	width:30px;

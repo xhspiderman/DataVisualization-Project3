@@ -48,9 +48,9 @@ function paintCharacters(){
 		        .append('div')
 		        .attr('class','button');
 	canvas.append('button')
-		  .attr('id','left');
+		  .attr('class','left');
 	canvas.append('button')
-		    .attr('id','right');
+		    .attr('class','right');
 	var img = d3.select("#characters_select").selectAll("img")
 		    		.data(data)
 		    		.enter()
@@ -86,16 +86,16 @@ function paintCharacters(){
 
 function paintEpisodes(){
 	var data = episodes_info_DB().limit(22).get()
-	var canvas = d3.select(".canvas")
+	var episodes_select = d3.select(".canvas")
 			        .append('div')
 			        .attr('id','episodes_select')
 			        .append('div')
 			        .attr('class','button');
-	canvas.append('button')
-			.attr('id','left');
-	canvas.append('button')
-			.attr('id','right');
-	var svg = d3.select('#episodes_select').append('svg')
+	episodes_select.append('button')
+			.attr('class','left');
+	episodes_select.append('button')
+			.attr('class','right');
+	var svg = episodes_select.append('svg')
 				.style("border", "1px solid black");
 
 	var rect = d3.select('svg').selectAll('g')
@@ -136,15 +136,6 @@ function paintEpisodes(){
     					.attr('fill', 'black')
     					.style('position','relative')
 			    		.style('float','left')
-	/*rect = d3.select('svg').append('rect').transition().duration(500).attr('width', 150)
-                .attr('height', 100)
-                .attr('x', 40)
-                .attr('y', 100)
-                .style('fill', 'white')
-                .attr('stroke', 'black')
-	text = svg.append('text').text('Ep:1 Season:1')
-                .attr('x', 50)
-                .attr('y', 150)
-                .attr('fill', 'black')*/
 }
+
 $(main);
