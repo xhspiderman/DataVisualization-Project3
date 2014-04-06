@@ -6,6 +6,7 @@ function main(){
 	//collage(); //Create a collage with all the images as initial page of the app
 	paintCharacters();
 	paintEpisodes();
+	paintLocations();
 }
 
 //Function to create a collage of images using d3
@@ -45,11 +46,10 @@ function paintCharacters(){
 		        .append('div')
 		        .attr('id','characters_select')
 		        .append('div')
-		        .attr('class','button');
-	canvas.append('button')
+	/*canvas.append('button')
 		  .attr('class','left');
 	canvas.append('button')
-		    .attr('class','right');
+		    .attr('class','right');*/
 	var img = d3.select("#characters_select").selectAll("img")
 		    		.data(data)
 		    		.enter()
@@ -86,25 +86,25 @@ function paintCharacters(){
 function paintEpisodes(){
 	var data = episodes_info_DB().limit(22).get();
 	var episodes_select = d3.select(".canvas")
-			        .append('div')
-			        .attr('id','episodes_select')
-			        .append('div')
-			        .attr('class','button');
-	episodes_select.append('button')
+					.append('svg')
+					.style("border", "1px solid black")
+					.attr('id','svg')
+					.append('g')
+					.attr('id','episodes')
+					.attr('transform','translate(100,150)')
+	/*episodes_select.append('button')
 			.attr('class','left');
 	episodes_select.append('button')
-			.attr('class','right');
-	var svg = episodes_select.append('svg')
-				.style("border", "1px solid black")
-				.attr('id','svg_episode')
+			.attr('class','right');*/
 
-	var rect = d3.select('svg').selectAll('g')
+
+	var rect = d3.select('#episodes').selectAll('g')
 			    		.data(data)
 			    		.enter()
 			    		.append('g')
 			    		.attr('class','episode_group')
 			    		.append('rect')
-			    		.attr("transform", function(d,i){
+			    		.attr('transform', function(d,i){
 			    			return "translate("+ String(50*i)+ ",0)"
 			    		})
 			    		.attr('width',function(d,i){
@@ -114,21 +114,62 @@ function paintEpisodes(){
 			    			return 50;
 			    		})
 			    		.attr('stroke', 'black')
-			    		.style('top',50)
-			    		.style('position','relative')
-			    		.style('float','left')
 			    		.style('fill', 'white')
    	var text = d3.selectAll('.episode_group').append('text')
    						.text(function(d,i){
    							return 'Season: '+String(d.seasonNum)+'Episode: '+String(d.episodeNum);
    						})
    						.attr("transform", function(d,i){
-			    			return "translate("+ String(50*i)+ ",0)"
+			    			return "translate("+ String(50*i+48)+ ",0)"
 			    		})
-    					.attr('x', 0)
-    					.attr('y', 20)
+    					.attr('y', 10)
+    					.attr('text-anchor', 'middle')
     					.attr('fill', 'black')
     					.attr('class','episode_text')
+
+    var link = d3.selectAll('.episode_group')
+	      				.append('path')
+	      				.attr('class', 'link')
+	      				.attr('d','M 100 100 L 300 100')
+	      				.attr('stroke','red')
+	      				.attr('stroke-width','2')
 }
 
+function paintLocations(){
+	var data = locations_DB().limit(22).get();
+	var svg = d3.select('svg')
+				.append('g')
+				.attr('id','locations')
+				.attr('transform','translate(100,350)')
+
+	var rect = d3.select('#locations').selectAll('g')
+			    		.data(data)
+			    		.enter()
+			    		.append('g')
+			    		.attr('class','location_group')
+			    		.append('rect')
+			    		.attr('transform', function(d,i){
+			    			return "translate("+ String(50*i)+ ",0)"
+			    		})
+			    		.attr('width',function(d,i){
+			    			return 50;
+			    		})
+			    		.attr('height',function(d,i){
+			    			return 50;
+			    		})
+			    		.attr('stroke', 'black')
+			    		.style('fill', 'white')
+
+	var text = d3.selectAll('.location_group').append('text')
+   						.text(function(d,i){
+   							return String(d.location);
+   						})
+   						.attr("transform", function(d,i){
+			    			return "translate("+ String(50*i+30)+ ",0)"
+			    		})
+    					.attr('y', 10)
+    					.attr('text-anchor', 'middle')
+    					.attr('fill', 'black')
+    					.attr('class','episode_text')
+}	
 $(main);
