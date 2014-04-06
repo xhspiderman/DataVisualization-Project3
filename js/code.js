@@ -137,8 +137,7 @@ function paintEpisodes(){
     					.attr('x', 0)
     					.attr('y', 20)
     					.attr('fill', 'black')
-    					.style('position','relative')
-			    		.style('float','left')
+    					.attr('class','episode_text')
 }
 
 $(main);

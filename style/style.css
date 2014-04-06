@@ -71,3 +71,8 @@
 	right:50px;
 	width: 20px;
 }
+.episode_text{
+	position:relative;
+	float:left;
+	font-size:9px;
+} 
