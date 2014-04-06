@@ -37,7 +37,6 @@ function collage(){
 }
 //function to create character selector
 function paintCharacters(){
-	console.log('executing')
 	var data = characters_info_DB().limit(22).get()
 	
 	var canvas = d3.select("#home")
@@ -85,7 +84,16 @@ function paintCharacters(){
 }
 
 function paintEpisodes(){
-	var data = episodes_info_DB().limit(22).get()
+	var data = episodes_info_DB().limit(22).get();
+	var positioning = [];
+	var scaled_data =[];
+	var linearScale = d3.scale.linear()
+                   .domain([0,1000])
+                   .range([0,100]);
+	/*for (var i=0; i<22;i++){
+		positioning.push(i*50);
+		newScaledData[i] = linearScale(initialScaleData[i]);
+	}*/
 	var episodes_select = d3.select(".canvas")
 			        .append('div')
 			        .attr('id','episodes_select')
@@ -96,7 +104,8 @@ function paintEpisodes(){
 	episodes_select.append('button')
 			.attr('class','right');
 	var svg = episodes_select.append('svg')
-				.style("border", "1px solid black");
+				.style("border", "1px solid black")
+				.attr('id','svg_episode')
 
 	var rect = d3.select('svg').selectAll('g')
 			    		.data(data)
@@ -104,23 +113,14 @@ function paintEpisodes(){
 			    		.append('g')
 			    		.attr('class','episode_group')
 			    		.append('rect')
+			    		.attr("transform", function(d,i){
+			    			return "translate("+ String(50*i)+ ",0)"
+			    		})
 			    		.attr('width',function(d,i){
-			    			if(i==0) return 15;
-			    			if(i==1) return 27;
-			    			if(i==2) return 40;
-			    			if(i==19) return 40;
-			    			if(i==20) return 27;
-			    			if(i==21) return 15;
-			    			else return 55;
+			    			return 50;
 			    		})
 			    		.attr('height',function(d,i){
-			    			if(i==0) return 15;
-			    			if(i==1) return 27;
-			    			if(i==2) return 40;
-			    			if(i==19) return 40;
-			    			if(i==20) return 27;
-			    			if(i==21) return 15;
-			    			else return 55;
+			    			return 50;
 			    		})
 			    		.attr('stroke', 'black')
 			    		.style('top',50)
@@ -131,6 +131,9 @@ function paintEpisodes(){
    						.text(function(d,i){
    							return 'Season: '+String(d.seasonNum)+'Episode: '+String(d.episodeNum);
    						})
+   						.attr("transform", function(d,i){
+			    			return "translate("+ String(50*i)+ ",0)"
+			    		})
     					.attr('x', 0)
     					.attr('y', 20)
     					.attr('fill', 'black')
