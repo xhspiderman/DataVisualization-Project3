@@ -62,13 +62,14 @@
     var tempLinks=[];
     var tempNodes=[];
     var input_DB = TAFFY();
-    characters_DB().each(function(record,recordnumber){
+    characters_DB().limit(15).each(function(record,recordnumber){
         
         if(record["appearances"].length>0){
-            input_DB.insert({"name":record["page"]});
+            // input_DB.insert({"name":record["page"]});
 
             // console.log(record["appearances"])
             for(var i=0; i<record["appearances"].length;i++){
+                input_DB.insert({"name":record["page"]});
                 input_DB.insert({"name":record["appearances"][i]});
                 tempLinks.push({"source":record["page"], "target":record["appearances"][i], "value":"1.0"})
             }
@@ -76,8 +77,12 @@
     })
     tempNodesName = input_DB().distinct("name")
     for(var i=0; i<tempNodesName.length; i++){
-        tempNodes.push({"name":tempNodesName[i]});
+        var tempNUM = input_DB({name:tempNodesName[i]}).count()
+        // var tempNUM = 1
+        tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM});
     }
+    tempNodes.sort(function(a,b){return a.linkNUM-b.linkNUM});
+    tempNodes.reverse()
     var input2= { "links":tempLinks, "nodes":tempNodes}
 
 
@@ -89,7 +94,7 @@
      
     var margin = {top: 60, right: 10, bottom: 10, left: 10},
         width = 1200 - margin.left - margin.right,
-        height = 115740 - margin.top - margin.bottom;
+        height = 5740 - margin.top - margin.bottom;
      
     var formatNumber = d3.format(",.0f"),    // zero decimal places
         format = function(d) { return formatNumber(d) + " " + units; },
@@ -137,7 +142,7 @@
         .enter().append("path")
           .attr("class", "link")
           .attr("d", path)
-          .style("stroke-width", function(d) { return Math.max(1, d.dy)/10; })
+          .style("stroke-width", function(d) { return 1*Math.max(1, d.dy)/10; })
           .sort(function(a, b) { return b.dy - a.dy; });
      
     // add the link titles

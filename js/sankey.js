@@ -224,8 +224,9 @@ d3.sankey = function() {
             n = nodes.length,
             i;
 
-        // Push any overlapping nodes down.
-        nodes.sort(ascendingDepth);
+        // Push any overlapping nodes down. 
+        // Hao: this line is commented to enable left side sorting in main_sankey.html
+        // nodes.sort(ascendingDepth);
         for (i = 0; i < n; ++i) {
           node = nodes[i];
           dy = y0 - node.y;
