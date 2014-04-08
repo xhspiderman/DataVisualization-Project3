@@ -41,12 +41,12 @@ d3.sankey = function() {
     computeNodeValues();
     computeNodeBreadths();
     computeNodeDepths(iterations);
-    computeLinkDepths();
+    computeLinkDepths(thisnode= null);
     return sankey;
   };
 
-  sankey.relayout = function() {
-    computeLinkDepths();
+  sankey.relayout = function(thisnode) {
+    computeLinkDepths(thisnode);
     return sankey;
   };
 
@@ -255,8 +255,22 @@ d3.sankey = function() {
     }
   }
 
-  function computeLinkDepths() {
+  function computeLinkDepths(thisnode) {
     nodes.forEach(function(node) {
+      // Here we compare the selected block and its corresponding link and mark the color of them
+      if(thisnode==node.name){
+         // console.log("cool")
+         // console.log(node.sourceLinks)
+         node.sourceLinks.forEach(function(link) {
+         link.mark = true;
+        });
+         // console.log(node.sourceLinks)
+      }else{
+         node.sourceLinks.forEach(function(link) {
+         link.mark = false;
+        });
+      }
+      // console.log(node.targetLinks)
       node.sourceLinks.sort(ascendingTargetDepth);
       node.targetLinks.sort(ascendingSourceDepth);
     });

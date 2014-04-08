@@ -25,7 +25,7 @@
     var characters_DB = TAFFY(characters);    // Characters from Andy
     var characters_info_DB = TAFFY(characters_info); // characters with image from us
     var locations_DB = TAFFY(locations);  //locations from Andy
- 
+    var test = null;
     </script>
     <!--Stylesheets-->
     <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -142,7 +142,9 @@
         .enter().append("path")
           .attr("class", "link")
           .attr("d", path)
-          .style("stroke-width", function(d) { return 1*Math.max(1, d.dy)/10; })
+          .attr("stroke","red")
+          .attr("stroke-opacity",0.2)
+          .style("stroke-width", function(d) { return 2*Math.max(1, d.dy)/10; })
           .sort(function(a, b) { return b.dy - a.dy; });
      
     // add the link titles
@@ -161,6 +163,7 @@
         .call(d3.behavior.drag()
           .origin(function(d) { return d; })
           .on("dragstart", function() { 
+              console.log("dragstart")
               this.parentNode.appendChild(this); })
           .on("drag", dragmove));
      
@@ -190,15 +193,35 @@
      
     // the function for moving the nodes
       function dragmove(d) {
+        console.log("dragmove")
+        console.log(d3.select(this.children[1]).text())
+        var nodeName = d3.select(this.children[1]).text()
         d3.select(this).attr("transform", 
             "translate(" + (
                    d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
                 ) + "," + (
                        d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
                 ) + ")");
-        sankey.relayout();
-        link.attr("d", path);
+        sankey.relayout(nodeName);
+        link.attr("d", path)
+            .attr("stroke-opacity",function(d) { return d.mark? 0.9:0.2; });
       }
+
+      $(".node")
+        .mouseenter(function(d) {
+          var nodeName = d3.select(this.children[1]).text()
+          sankey.relayout(nodeName);
+          link.attr("d", path)
+              .attr("stroke-opacity",function(d) { return d.mark? 0.99:0.2; });
+        })
+        .mouseleave(function(d) {
+               console.log("mouseleave")
+               link.attr("d", path)
+              .attr("stroke-opacity",function(d) { return 0.2; });
+        })
+              // $("path").css('stroke-opacity', 0.2)
+
+
     };
     </script>
    	<script src="js/code2.js"></script>
