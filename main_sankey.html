@@ -63,6 +63,10 @@
     var tempLinks=[];
     // Unduplicated nodes
     var tempNodes=[];
+    var tempNodes_character=[];
+    var tempNodes_episode=[];
+    var tempNodes_location=[];
+
     // duplicated nodes
     var input_DB = TAFFY();
     // Loop through each characters
@@ -97,17 +101,18 @@
         var tempNUM = currentNodes.count()
         var currentNodeType = currentNodes.first().type
         if(currentNodeType=="character"){
-            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"character"});
+            tempNodes_character.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"character"});
         }else if(currentNodeType=="episode"){
-            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"episode", "season":currentNodes.first().season, "episode":currentNodes.first().episode});
+            tempNodes_episode.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"episode", "season":currentNodes.first().season, "episode":currentNodes.first().episode});
         }else{
           // This type is location
-            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"location"});
-        }
-        // var tempNUM = 1
-        
+            tempNodes_location.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"location"});
+        }   
     }
-    tempNodes.sort(dynamicSortMultiple("-linkNUM", "episode"));
+
+    tempNodes_character.sort(linkNumSort);
+    tempNodes_episode.sort(EpisodeSort);
+    tempNodes= tempNodes_character.concat(tempNodes_episode)
     var input2= { "links":tempLinks, "nodes":tempNodes}
 
     function linkNumSort(a,b){
@@ -115,39 +120,11 @@
     }
 
     function EpisodeSort(a,b){
-      return b.linkNUM-a.linkNUM
-    }
-
-    function dynamicSort(property) {
-    var sortOrder = 1;
-    if(property[0] === "-") {
-        sortOrder = -1;
-        property = property.substr(1);
-    }
-    return function (a,b) {
-        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        return result * sortOrder;
-    }
-    }
-
-    function dynamicSortMultiple() {
-    /*
-     * save the arguments object as it will be overwritten
-     * note that arguments object is an array-like object
-     * consisting of the names of the properties to sort by
-     */
-    var props = arguments;
-    return function (obj1, obj2) {
-        var i = 0, result = 0, numberOfProperties = props.length;
-        /* try getting a different result from 0 (equal)
-         * as long as we have extra properties to compare
-         */
-        while(result === 0 && i < numberOfProperties) {
-            result = dynamicSort(props[i])(obj1, obj2);
-            i++;
-        }
-        return result;
-    }
+      if(a.type=="episode" && b.type=="episode"){
+        return a.episode-b.episode
+      }else{
+        return 0
+      }
     }
 
     </script>
