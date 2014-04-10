@@ -59,38 +59,102 @@
     </p>
     <!-- Create input data -->
     <script>
+    // Unduplicated link relations 
     var tempLinks=[];
+    // Unduplicated nodes
     var tempNodes=[];
+    // duplicated nodes
     var input_DB = TAFFY();
-    characters_DB().limit(15).each(function(record,recordnumber){
-        
+    // Loop through each characters
+    characters_DB().limit(5).each(function(record,recordnumber){
+        // if there is any episode this character appears in
         if(record["appearances"].length>0){
-            // input_DB.insert({"name":record["page"]});
-
-            // console.log(record["appearances"])
+            // loop through the episodes
             for(var i=0; i<record["appearances"].length;i++){
-                input_DB.insert({"name":record["page"]});
-                input_DB.insert({"name":record["appearances"][i]});
-                tempLinks.push({"source":record["page"], "target":record["appearances"][i], "value":"1.0"})
+
+                // get the episode to store
+                var tempEpisode= episodes_DB({title:{like:record["appearances"][i].trim()}}).first()
+                //If we have this episode in database
+                if (tempEpisode){
+                    // console.log("tempEpisode")
+                    // console.log(tempEpisode)
+                    // Store the Characters Column Node 
+                    input_DB.insert({"name":record["page"], "type":"character"});
+                    // Store the Episodes Column Node
+                    input_DB.insert({"name": tempEpisode.title, "type":"episode","season": tempEpisode.s,"episode":tempEpisode.e});
+                    tempLinks.push({"source":record["page"], "target":tempEpisode.title, "value":"1.0"})
+                  }else{
+                    // console.log("wrongEpisode")
+                    // console.log(record["appearances"][i])
+                  }
             }
         }
     })
+    // get rid of duplicated node records
     tempNodesName = input_DB().distinct("name")
     for(var i=0; i<tempNodesName.length; i++){
-        var tempNUM = input_DB({name:tempNodesName[i]}).count()
+        var currentNodes = input_DB({name:tempNodesName[i]})
+        var tempNUM = currentNodes.count()
+        var currentNodeType = currentNodes.first().type
+        if(currentNodeType=="character"){
+            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"character"});
+        }else if(currentNodeType=="episode"){
+            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"episode", "season":currentNodes.first().season, "episode":currentNodes.first().episode});
+        }else{
+          // This type is location
+            tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM, "type":"location"});
+        }
         // var tempNUM = 1
-        tempNodes.push({"name":tempNodesName[i], "linkNUM":tempNUM});
+        
     }
-    tempNodes.sort(function(a,b){return a.linkNUM-b.linkNUM});
-    tempNodes.reverse()
+    tempNodes.sort(dynamicSortMultiple("-linkNUM", "episode"));
     var input2= { "links":tempLinks, "nodes":tempNodes}
 
+    function linkNumSort(a,b){
+      return b.linkNUM-a.linkNUM
+    }
 
+    function EpisodeSort(a,b){
+      return b.linkNUM-a.linkNUM
+    }
+
+    function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+    }
+
+    function dynamicSortMultiple() {
+    /*
+     * save the arguments object as it will be overwritten
+     * note that arguments object is an array-like object
+     * consisting of the names of the properties to sort by
+     */
+    var props = arguments;
+    return function (obj1, obj2) {
+        var i = 0, result = 0, numberOfProperties = props.length;
+        /* try getting a different result from 0 (equal)
+         * as long as we have extra properties to compare
+         */
+        while(result === 0 && i < numberOfProperties) {
+            result = dynamicSort(props[i])(obj1, obj2);
+            i++;
+        }
+        return result;
+    }
+    }
 
     </script>
     <!-- Plot the input data -->
     <script>
-    var units = "episodes";
+    // Basic settings for canvas
+    var units = "#";
      
     var margin = {top: 60, right: 10, bottom: 10, left: 10},
         width = 1200 - margin.left - margin.right,
@@ -118,108 +182,116 @@
 
     inputPlot(input2)
      
-    // load the data
+    // Plot our data, if you need to redraw, call this function
     function inputPlot(graph) {
      
-        var nodeMap = {};
-        graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
-        graph.links = graph.links.map(function(x) {
-          return {
-            source: nodeMap[x.source],
-            target: nodeMap[x.target],
-            value: x.value
-          };
-        });
-     
-      sankey
-          .nodes(graph.nodes)
-          .links(graph.links)
-          .layout(32);
-     
-    // add in the links
-      var link = svg.append("g").selectAll(".link")
-          .data(graph.links)
-        .enter().append("path")
-          .attr("class", "link")
-          .attr("d", path)
-          .attr("stroke","red")
-          .attr("stroke-opacity",0.2)
-          .style("stroke-width", function(d) { return 2*Math.max(1, d.dy)/10; })
-          .sort(function(a, b) { return b.dy - a.dy; });
-     
-    // add the link titles
-      link.append("title")
-            .text(function(d) {
-            return d.source.name + " → " + 
-                    d.target.name + "\n" + format(d.value); });
-     
-    // add in the nodes
-      var node = svg.append("g").selectAll(".node")
-          .data(graph.nodes)
-        .enter().append("g")
-          .attr("class", "node")
-          .attr("transform", function(d) { 
-              return "translate(" + d.x + "," + d.y + ")"; })
-        .call(d3.behavior.drag()
-          .origin(function(d) { return d; })
-          .on("dragstart", function() { 
-              console.log("dragstart")
-              this.parentNode.appendChild(this); })
-          .on("drag", dragmove));
-     
-    // add the rectangles for the nodes
-      node.append("rect")
-          .attr("height", function(d) { return d.dy; })
-          .attr("width", sankey.nodeWidth())
-          .style("fill", function(d) { 
-              return d.color = color(d.name.replace(/ .*/, "")); })
-          .style("stroke", function(d) { 
-              return d3.rgb(d.color).darker(2); })
-        .append("title")
-          .text(function(d) { 
-              return d.name + "\n" + format(d.value); });
-     
-    // add in the title for the nodes
-      node.append("text")
-          .attr("x", -6)
-          .attr("y", function(d) { return d.dy / 2; })
-          .attr("dy", ".35em")
-          .attr("text-anchor", "end")
-          .attr("transform", null)
-          .text(function(d) { return d.name; })
-        .filter(function(d) { return d.x < width / 2; })
-          .attr("x", 6 + sankey.nodeWidth())
-          .attr("text-anchor", "start");
-     
-    // the function for moving the nodes
-      function dragmove(d) {
-        console.log("dragmove")
-        console.log(d3.select(this.children[1]).text())
-        var nodeName = d3.select(this.children[1]).text()
-        d3.select(this).attr("transform", 
-            "translate(" + (
-                   d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
-                ) + "," + (
-                       d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
-                ) + ")");
-        sankey.relayout(nodeName);
-        link.attr("d", path)
-            .attr("stroke-opacity",function(d) { return d.mark? 0.9:0.2; });
-      }
+            var nodeMap = {};
+            graph.nodes.forEach(function(x) { nodeMap[x.name] = x; });
+            graph.links = graph.links.map(function(x) {
+              return {
+                source: nodeMap[x.source],
+                target: nodeMap[x.target],
+                value: x.value
+              };
+            });
+         
+          sankey
+              .nodes(graph.nodes)
+              .links(graph.links)
+              .layout(32);
+         
+        // add in the links
+          var link = svg.append("g").selectAll(".link")
+              .data(graph.links)
+            .enter().append("path")
+              .attr("class", "link")
+              .attr("d", path)
+              .attr("stroke","red")
+              .attr("stroke-opacity",0.2)
+              .style("stroke-width", function(d) { return 2*Math.max(1, d.dy)/10; })
+              .sort(function(a, b) { return b.dy - a.dy; });
+         
+        // add the link titles
+          link.append("title")
+                .text(function(d) {
+                return d.source.name + " → " + 
+                        d.target.name + "\n" + format(d.value); });
+         
+        // add in the nodes
+          var node = svg.append("g").selectAll(".node")
+              .data(graph.nodes)
+            .enter().append("g")
+              .attr("class", "node")
+              .attr("transform", function(d) { 
+                  return "translate(" + d.x + "," + d.y + ")"; })
+            .call(d3.behavior.drag()
+              .origin(function(d) { return d; })
+              .on("dragstart", function() { 
+                  console.log("dragstart")
+                  this.parentNode.appendChild(this); })
+              .on("drag", dragmove));
+         
+        // add the rectangles for the nodes
+          node.append("rect")
+              .attr("height", function(d) { return d.dy; })
+              .attr("width", sankey.nodeWidth())
+              .style("fill", function(d) { 
+                  return d.color = color(d.name.replace(/ .*/, "")); })
+              .style("stroke", function(d) { 
+                  return d3.rgb(d.color).darker(2); })
+            .append("title")
+              .text(function(d) { 
+                  return d.name + "\n" + format(d.value); });
+         
+        // add in the title for the nodes
+          node.append("text")
+              .attr("x", -6)
+              .attr("y", function(d) { return d.dy / 2; })
+              .attr("dy", ".35em")
+              .attr("text-anchor", "end")
+              .attr("transform", null)
+              .text(function(d) {
+                console.log("ddd")
+                console.log(d)
+                if(d.type=='episode'){
+                  return "S"+d.season+"E"+d.episode+": "+d.name
+                }else{
+                  return d.name
+                }
+              })
+            .filter(function(d) { return d.x < width / 2; })
+              .attr("x", 6 + sankey.nodeWidth())
+              .attr("text-anchor", "start");
+         
+        // the function for moving the nodes
+          function dragmove(d) {
+            console.log("dragmove")
+            console.log(d3.select(this.children[1]).text())
+            var nodeName = d3.select(this.children[1]).text()
+            d3.select(this).attr("transform", 
+                "translate(" + (
+                       d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
+                    ) + "," + (
+                           d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
+                    ) + ")");
+            sankey.relayout(nodeName);
+            link.attr("d", path)
+                .attr("stroke-opacity",function(d) { return d.mark? 0.9:0.2; });
+          }
 
-      $(".node")
-        .mouseenter(function(d) {
-          var nodeName = d3.select(this.children[1]).text()
-          sankey.relayout(nodeName);
-          link.attr("d", path)
-              .attr("stroke-opacity",function(d) { return d.mark? 0.99:0.2; });
-        })
-        .mouseleave(function(d) {
-               console.log("mouseleave")
-               link.attr("d", path)
-              .attr("stroke-opacity",function(d) { return 0.2; });
-        })
-              // $("path").css('stroke-opacity', 0.2)
+          $(".node")
+            .mouseenter(function(d) {
+              var nodeName = d3.select(this.children[1]).text()
+              sankey.relayout(nodeName);
+              link.attr("d", path)
+                  .attr("stroke-opacity",function(d) { return d.mark? 0.99:0.2; });
+            })
+            .mouseleave(function(d) {
+                   console.log("mouseleave")
+                   link.attr("d", path)
+                  .attr("stroke-opacity",function(d) { return 0.2; });
+            })
+                  // $("path").css('stroke-opacity', 0.2)
     };
     </script>
 </body>
