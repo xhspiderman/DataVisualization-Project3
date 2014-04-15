@@ -134,8 +134,8 @@ function Plot(data) {
             .on("mouseover", function(d){
                    //highlight text
                    d3.select(this).classed("cell-hover",true);
-                   d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ return ri==(d.source-1);});
-                   d3.selectAll(".colLabel").classed("text-highlight",function(c,ci){ return ci==(d.target-1);});
+                   d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ return ri==hcrow.indexOf(d.source);});
+                   d3.selectAll(".colLabel").classed("text-highlight",function(c,ci){ return ci==hccol.indexOf(d.target);});
             
                    //Update the tooltip position and value
                    d3.select("#tooltip")
