@@ -8,7 +8,7 @@
       <script src="lib/jquery/jquery-1.11.0.min.js"></script>
       <script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
       <script src="lib/multiple-select-master/jquerymultipleselect.js"></script>
-      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="lib/D3/d3.v3.min.js"></script>
       <script src="lib/taffy/taffy.js"></script>
       <!--Internal js files-->
       <script src="data/episodes.js"></script>
@@ -32,19 +32,19 @@
       <!--Stylesheets-->
       <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="lib/multiple-select-master/multiple-select.css">
+      <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" href="style/style3.css">
 
   </head>
   <body>
-    <div id="tooltip" class="hidden">
+  <div class="row">
+    <div id="tooltip" class="hidden" style="z-index:10;">
       <p><span id="value"></p>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div id="chart" style='overflow:auto; width:10000px; height:1000px;'></div>
+    <div class='col-xs-2'>
+    cool
+    </div>
+    <div class='col-xs-10' id="chart" style='overflow:auto;'></div>
     <script type="text/javascript" src="js/code_modified.js"></script>
   </body>
 </html>

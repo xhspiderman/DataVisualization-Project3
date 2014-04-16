@@ -83,3 +83,17 @@ text.text-hover {
   font-size: 12px;
   line-height: 20px;
 }
+
+.seasonLabel{
+  font-size: 20pt;
+  font-family: Consolas, courier;
+  fill: #a63467;
+}
+
+.home-hover{
+  color:#a63467;
+}
+
+.pointerLabel{
+  cursor:pointer;
+}

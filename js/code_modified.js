@@ -10,18 +10,39 @@ $(main);
 //main function
 function main(){
 
-  // data();
-  // initialization(ordered_row_objects, column_objects)
-  // Plot(Links().get())
+  plotSeason(2)
+  // data_heat()
+  // initialization(row_objects_heat, column_objects_heat())
+  // Plot(Links_heat().get())
+  // plotMain()
+}
+
+function plotMain(){
+  mainClear()
+  $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   data_heat()
   initialization(row_objects_heat, column_objects_heat())
-  Plot(Links_heat().get())
+  Plot(Links_heat().get(),0)
+}
+function mainClear(){
+  Links_heat().remove()
+}
+function seasonClear(){
+  Links().remove()
+}
+
+function plotSeason(seasonNum){
+  seasonClear()
+  $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
+  data(seasonNum);
+  initialization(ordered_row_objects, column_objects)
+  Plot(Links().get(), seasonNum)
 }
 
 //Function to manage the data
-function data(){
-  row_objects = characters_DB() // selected characters
-  column_objects = episodes_DB({s:2}).order("s asec, e asec") // selected episodes
+function data(seasonNum){
+  row_objects = characters_episodes_DB() // selected characters
+  column_objects = episodes_DB({s:seasonNum}).order("s asec, e asec") // selected episodes
   // Add an id field for each episode record
   column_objects.each(function (record,recordnumber) {
     record.ID = recordnumber+1
@@ -30,24 +51,21 @@ function data(){
   // update the number of episodes field of each character
   row_objects.each(function (record,recordnumber) {
       record.ID = recordnumber+1
-      record.linkNum = 0    // initialize the number of links of each character 
+      record.linkNum = record.HeatRecord[seasonNum-1]    // initialize the number of links of each character 
       if(record["appearances"].length>0){
           // loop through the episodes
           for(var i=0; i<record["appearances"].length;i++){
               // get the episode to store
-              var tempEpisode= episodes_DB({s:2},{title:{like:record["appearances"][i].trim()}}).first()
-              // var tempEpisode= column_objects.filter({title:{like:record["appearances"][i].trim()}}).first()
+              var tempEpisode= episodes_DB({s:seasonNum},{title:{like:record["appearances"][i].trim()}}).first()
+              // var tempEpisode= column_objects().filter({title:{like:record["appearances"][i].trim()}}).first()
               //If we have this episode in database
               if (tempEpisode){
-                  record.linkNum +=1
-                  Links.insert({"source":record["ID"], "target":tempEpisode["ID"], "value":"1"})
+                  Links.insert({"source":record["ID"], "target":tempEpisode["ID"], "value":"8"})
                 }
           }
       }
   });
-
   ordered_row_objects = row_objects.order("linkNum desc")
-
 }
 
 //Function to manage the data for seasons heatmap
@@ -73,14 +91,13 @@ function data_heat(){
           }
       }
   });
-  // console.log(Links_heat().get())
 
 }
 
 function initialization(row_objects, column_objects){
 
   // Basic setup for plot
-    margin = { top: 300, right: 10, bottom: 50, left: 200 },
+    margin = { top: 160, right: 10, bottom: 50, left: 180 },
     cellSize=35;
     col_number=column_objects.count();
     row_number=row_objects.count();
@@ -106,7 +123,7 @@ function initialization(row_objects, column_objects){
       
 };
 
-function Plot(data) {
+function Plot(data, seasonNum) {
 
       // color scale
       var colorScale = d3.scale.quantile()
@@ -119,6 +136,31 @@ function Plot(data) {
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
           ;
+
+      var seasonLabels = svg.append("g")
+          .append("text")
+          .text(function (d) { 
+            if(seasonNum==0){
+              return ""
+            }else{
+              return "Season "+seasonNum
+            }; })
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("transform", "translate(-80, 0) rotate(-45)")
+          .attr("class", "seasonLabel")
+
+      var homeLabel = svg.append("g")
+          .append('svg:foreignObject')
+          .attr("width", 50)
+          .attr("height", 50)
+          .attr("color","#EEEEEE")
+          .attr("cursor","pointer")
+          .attr("transform", "translate(-35, -35)")
+          .html('<i class="fa fa-home fa-2x"></i>')
+          .on("mouseover", function(d) {d3.select(this).classed("home-hover",true);})
+          .on("mouseout" , function(d) {d3.select(this).classed("home-hover",false);})
+          .on("click", function(d,i) { plotMain() })
 
       var rowLabels = svg.append("g")
           .selectAll(".rowLabelg")
@@ -144,10 +186,17 @@ function Plot(data) {
           .attr("x", 0)
           .attr("y", function (d, i) { return hccol.indexOf(i+1) * cellSize; })
           .style("text-anchor", "left")
-          .attr("transform", "translate("+cellSize/2 + ",-6) rotate (-90)")
-          .attr("class",  function (d,i) { return "colLabel mono c"+i;} )
+          .attr("transform", "translate("+cellSize/2 + ",-6) rotate(-90)")
+          .attr("class",  function (d,i) {
+              if(seasonNum == 0){
+                return "colLabel pointerLabel mono c"+i
+              }else{
+                return "colLabel mono c"+i;
+              }
+            })
           .on("mouseover", function(d) {d3.select(this).classed("text-hover",true);})
           .on("mouseout" , function(d) {d3.select(this).classed("text-hover",false);})
+          .on("click", function(d,i) { if(seasonNum == 0){ plotSeason(parseInt(d.split(" ")[1])) } })
           ;
 
       var heatMap = svg.append("g").attr("class","g3")
@@ -159,7 +208,7 @@ function Plot(data) {
             // console.log(d) 
               return hccol.indexOf(d.target) * cellSize; })
             .attr("y", function(d) { return hcrow.indexOf(d.source) * cellSize; })
-            .attr("class", function(d){return "cell cell-border cr"+(d.row-1)+" cc"+(d.col-1);})
+            .attr("class", function(d){return "cell cell-border";})
             .attr("width", cellSize)
             .attr("height", cellSize)
             .style("fill", function(d) { return colorScale(d.value); })
@@ -175,7 +224,7 @@ function Plot(data) {
                      .style("left", (d3.event.pageX+15) + "px")
                      .style("top", (d3.event.pageY-15) + "px")
                      .select("#value")
-                     .text("Character: "+rowLabel[hcrow.indexOf(d.source)]+"\n Episode: "+colLabel[hccol.indexOf(d.target)]);  
+                     .html("Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]);  
                    //Show the tooltip
                    d3.select("#tooltip").classed("hidden", false);
             })
