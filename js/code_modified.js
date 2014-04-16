@@ -9,20 +9,17 @@ $(main);
 // New mechanism is: input is javascript database object and we will create attribute of number of links
 //main function
 function main(){
-
-  plotSeason(2)
-  // data_heat()
-  // initialization(row_objects_heat, column_objects_heat())
-  // Plot(Links_heat().get())
-  // plotMain()
+  
+  plotMain()
+  
 }
 
 function plotMain(){
   mainClear()
-  $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
+  // $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   data_heat()
   initialization(row_objects_heat, column_objects_heat())
-  Plot(Links_heat().get(),0)
+  Plot(Links_heat().get(),0,"#chart_main", hcrow, hccol, rowLabel, colLabel)
 }
 function mainClear(){
   Links_heat().remove()
@@ -36,7 +33,7 @@ function plotSeason(seasonNum){
   $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   data(seasonNum);
   initialization(ordered_row_objects, column_objects)
-  Plot(Links().get(), seasonNum)
+  Plot(Links().get(), seasonNum,"#chart", hcrow, hccol, rowLabel, colLabel)
 }
 
 //Function to manage the data
@@ -105,8 +102,8 @@ function initialization(row_objects, column_objects){
     height = cellSize*row_number , 
 
     colorBuckets = 21,
-    colors = ['#005824','#1A693B','#347B53','#4F8D6B','#699F83','#83B09B','#9EC2B3','#B8D4CB','#D2E6E3','#EDF8FB','#FFFFFF','#F1EEF6','#E6D3E1','#DBB9CD','#D19EB9','#C684A4','#BB6990','#B14F7C','#A63467','#9B1A53','#91003F'];
-    
+    // colors = ['#005824','#1A693B','#347B53','#4F8D6B','#699F83','#83B09B','#9EC2B3','#B8D4CB','#D2E6E3','#EDF8FB','#FFFFFF','#F1EEF6','#E6D3E1','#DBB9CD','#D19EB9','#C684A4','#BB6990','#B14F7C','#A63467','#9B1A53','#91003F'];
+    colors = ["#91003F","#960C48","#9B1851","#A0245A","#A53063","#AB3C6C","#B04875","#B5557F","#BA6188","#C06D91","#C5799A","#CA85A3","#CF91AC","#D59DB5","#DAAABF","#DFB6C8","#E4C2D1","#EACEDA","#EFDAE3","#F4E6EC","#F9F2F5","#FFFFFF"].reverse()
     //  hcrow is used to record location of corresponding target in rowLabel, each number is a target and its label I guess is at Label matrix
     // hcrow = [49,11,30,4,18,6,12,20,19,33,32,26,44,35,38,3,23,41,22,10,2,15,16,36,8,25,29,7,27,34,48,31,45,43,14,9,39,1,37,47,42,21,40,5,28,46,50,17,24,13],
       hcrow = row_objects.select("ID"); 
@@ -123,14 +120,14 @@ function initialization(row_objects, column_objects){
       
 };
 
-function Plot(data, seasonNum) {
+function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
 
       // color scale
       var colorScale = d3.scale.quantile()
           .domain([ -10 , 0, 10])
           .range(colors);
       
-      var svg = d3.select("#chart").append("svg")
+      var svg = d3.select(divSelector).append("svg")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom)
           .append("g")
@@ -147,7 +144,7 @@ function Plot(data, seasonNum) {
             }; })
           .attr("x", 0)
           .attr("y", 0)
-          .attr("transform", "translate(-80, 0) rotate(-45)")
+          .attr("transform", "translate(-85, 0) rotate(-45)")
           .attr("class", "seasonLabel")
 
       var homeLabel = svg.append("g")
@@ -160,7 +157,10 @@ function Plot(data, seasonNum) {
           .html('<i class="fa fa-home fa-2x"></i>')
           .on("mouseover", function(d) {d3.select(this).classed("home-hover",true);})
           .on("mouseout" , function(d) {d3.select(this).classed("home-hover",false);})
-          .on("click", function(d,i) { plotMain() })
+          .on("click", function(d,i) {
+           $("#chart_main").show("fast") ;
+           $("#chart").hide("fast");
+          })
 
       var rowLabels = svg.append("g")
           .selectAll(".rowLabelg")
@@ -196,8 +196,14 @@ function Plot(data, seasonNum) {
             })
           .on("mouseover", function(d) {d3.select(this).classed("text-hover",true);})
           .on("mouseout" , function(d) {d3.select(this).classed("text-hover",false);})
-          .on("click", function(d,i) { if(seasonNum == 0){ plotSeason(parseInt(d.split(" ")[1])) } })
-          ;
+          .on("click", function(d,i) { 
+            if(seasonNum == 0){ 
+              plotSeason(parseInt(d.split(" ")[1])) 
+              $("#chart_main").hide("slow") ;
+              $("#chart").show("slow");
+            }
+            
+          });
 
       var heatMap = svg.append("g").attr("class","g3")
             .selectAll(".cellg")
@@ -216,8 +222,8 @@ function Plot(data, seasonNum) {
             .on("mouseover", function(d){
                    //highlight text
                    d3.select(this).classed("cell-hover",true);
-                   d3.selectAll(".rowLabel").classed("text-highlight",function(r,ri){ return ri==hcrow.indexOf(d.source);});
-                   d3.selectAll(".colLabel").classed("text-highlight",function(c,ci){ return ci==hccol.indexOf(d.target);});
+                   d3.selectAll(divSelector).selectAll(".rowLabel").classed("text-highlight",function(r,ri){ return ri==hcrow.indexOf(d.source);});
+                   d3.selectAll(divSelector).selectAll(".colLabel").classed("text-highlight",function(c,ci){ return ci==hccol.indexOf(d.target);});
             
                    //Update the tooltip position and value
                    d3.select("#tooltip")
