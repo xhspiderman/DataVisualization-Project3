@@ -9,9 +9,7 @@ $(main);
 // New mechanism is: input is javascript database object and we will create attribute of number of links
 //main function
 function main(){
-  
   plotMain()
-  
 }
 
 function plotMain(){
@@ -38,7 +36,7 @@ function plotSeason(seasonNum){
 
 //Function to manage the data
 function data(seasonNum){
-  row_objects = characters_episodes_DB() // selected characters
+  row_objects = characters_episodes_DB().limit(10).order("totalAppear desc") // selected characters
   column_objects = episodes_DB({s:seasonNum}).order("s asec, e asec") // selected episodes
   // Add an id field for each episode record
   column_objects.each(function (record,recordnumber) {
@@ -55,6 +53,9 @@ function data(seasonNum){
               // get the episode to store
               var tempEpisode= episodes_DB({s:seasonNum},{title:{like:record["appearances"][i].trim()}}).first()
               // var tempEpisode= column_objects().filter({title:{like:record["appearances"][i].trim()}}).first()
+              // if(record["appearances"][i].trim()=="HOM\u042f"){//
+                    // console.log(record["appearances"][i])
+                    // console.log("cool")
               //If we have this episode in database
               if (tempEpisode){
                   Links.insert({"source":record["ID"], "target":tempEpisode["ID"], "value":"8"})
@@ -67,7 +68,7 @@ function data(seasonNum){
 
 //Function to manage the data for seasons heatmap
 function data_heat(){
-  row_objects_heat = characters_episodes_DB().order("totalAppear desc").limit(100) // selected characters
+  row_objects_heat = characters_episodes_DB().limit(10).order("totalAppear desc") // selected characters
   seasons = episodes_DB().order("s asec, e asec").distinct("s");  // selected seasons
   column_objects_heat = TAFFY()
 
@@ -267,5 +268,4 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
             .attr("x", function(d, i) { return legendElementWidth * i; })
             .attr("y", height + (cellSize*1)-3);
           }
-
 };
