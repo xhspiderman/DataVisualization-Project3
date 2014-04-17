@@ -94,7 +94,7 @@ function data_heat(){
 function initialization(row_objects, column_objects){
 
   // Basic setup for plot
-    margin = { top: 160, right: 10, bottom: 50, left: 180 },
+    margin = { top: 160, right: 10, bottom: 150, left: 180 },
     cellSize=35;
     col_number=column_objects.count();
     row_number=row_objects.count();
@@ -230,7 +230,13 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
                      .style("left", (d3.event.pageX+15) + "px")
                      .style("top", (d3.event.pageY-15) + "px")
                      .select("#value")
-                     .html("Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]);  
+                     .html(function(){
+                        if(seasonNum==0){
+                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%";
+                        }else{
+                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)];
+                        };
+                      })  
                    //Show the tooltip
                    d3.select("#tooltip").classed("hidden", false);
             })
@@ -239,6 +245,27 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
                    d3.selectAll(".rowLabel").classed("text-highlight",false);
                    d3.selectAll(".colLabel").classed("text-highlight",false);
                    d3.select("#tooltip").classed("hidden", true);
-            })
-            ;
+            });
+      if(seasonNum==0){
+          var legendElementWidth = 35
+          var legend = svg.selectAll(".legend")
+              .data([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10])
+              .enter().append("g")
+              .attr("class", "legend");
+         
+          legend.append("rect")
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height+(cellSize*1))
+            .attr("width", legendElementWidth)
+            .attr("height", cellSize/2)
+            .style("fill", function(d, i) { return colors[i]; });
+         
+          legend.append("text")
+            .attr("class", "mono")
+            .text(function(d) { return (((parseInt(d)+10)/0.2).toString()+"%"); })
+            .attr("width", legendElementWidth)
+            .attr("x", function(d, i) { return legendElementWidth * i; })
+            .attr("y", height + (cellSize*1)-3);
+          }
+
 };
