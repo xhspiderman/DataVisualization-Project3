@@ -1,5 +1,7 @@
 //File to hold the main code of the Simpsons Visualization Application
 //authors: Alberto Gonzalez, Hao Xu date:April 2014
+//**************************
+//GLOBAL VARIABLES
 // getting needed data
 // Unduplicated link relations 
 var tempLinks=TAFFY();
@@ -12,11 +14,25 @@ var tempNodes_episode=[];
 var tempNodes_location=[];
 // duplicated nodes
 var input_DB = TAFFY();
+//define the selector
+$("select").multipleSelect({
+            filter: true,
+            placeholder: "Select a group to visualize",
+            onClick: function(view) {
+               console.log($("select").multipleSelect("getSelects","text"))
+               //$("select").multipleSelect("getSelects","text")
+            },
+            onOptgroupClick: function(view) {
+             console.log($("select").multipleSelect("getSelects","text"))
+            } 
+});
+
 
 $(main);
 
 //main function
 function main(){
+  selection();
   data();
   initialization()
   // Plot(data_heatmap)

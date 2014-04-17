@@ -6,10 +6,11 @@ import re
 
 # opens the result file
 resultFile = open("output_single.txt", "r+")
-page = urllib2.urlopen('http://simpsons.wikia.com/wiki/Homer_Simpson').read()
+page = urllib2.urlopen('http://simpsons.wikia.com/wiki/Category:Bands').read()
 soup = BeautifulSoup(page)
 #  get the character
-character=soup.find(id='WikiaPageHeader').find('h1').string
+pdb.set_trace()
+group=soup.find(id='mw-content-ltr').find('h1').string
 
 #  get the episodes the character is in
 checkDIV=soup.find_all(id=re.compile("^Appearance"))[-1]
