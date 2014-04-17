@@ -98,4 +98,16 @@ select {
   top:0px;
   left:200px;
   border:1px solid black;
+.seasonLabel{
+  font-size: 20pt;
+  font-family: Consolas, courier;
+  fill: #a63467;
+}
+
+.home-hover{
+  color:#a63467;
+}
+
+.pointerLabel{
+  cursor:pointer;
 }

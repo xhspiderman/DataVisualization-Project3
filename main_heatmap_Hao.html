@@ -8,13 +8,14 @@
       <script src="lib/jquery/jquery-1.11.0.min.js"></script>
       <script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
       <script src="lib/multiple-select-master/jquerymultipleselect.js"></script>
-      <script src="http://d3js.org/d3.v3.min.js"></script>
+      <script src="lib/D3/d3.v3.min.js"></script>
       <script src="lib/taffy/taffy.js"></script>
       <script src="lib/tagCanvas/jquery.tagcanvas.js"></script>
       <!--Internal js files-->
       <script src="data/episodes.js"></script>
       <script src="data/episodes_info.js"></script>
       <script src="data/characters.js"></script>
+      <script src="data/characters_with_eps.js"></script>
       <script src="data/characters_info.js"></script>
       <script src="data/locations.js"></script>
       <script src="js/data_heatmap.js"></script>
@@ -26,10 +27,12 @@
       var characters_DB = TAFFY(characters);    // Characters from Andy
       var characters_info_DB = TAFFY(characters_info); // characters with image from us
       var locations_DB = TAFFY(locations);  //locations from Andy
+      var characters_episodes_DB = TAFFY(characters_with_episode_information);
       </script>
       <!--Stylesheets-->
       <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="lib/multiple-select-master/multiple-select.css">
+      <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" href="style/style3.css">
 
   </head>
@@ -64,6 +67,16 @@
     <br>
 
     <div id="chart" style='overflow:auto; width:10000px; height:1000px;'></div>
+  <div class="row">
+    <div id="tooltip" class="hidden" style="z-index:10;">
+      <p><span id="value"></p>
+    </div>
+
+    <div class='col-xs-10 col-xs-offset-2' id="chart_main" style='overflow:auto;'></div>
+
+    <div class='col-xs-10 col-xs-offset-2' id="chart" style='overflow:auto;'></div>
+    
+    <script type="text/javascript" src="js/code_modified.js"></script>
   </body>
   <footer>
     <script type="text/javascript" src="js/code.js"></script>

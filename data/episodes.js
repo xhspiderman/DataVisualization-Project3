@@ -1537,7 +1537,7 @@ var episodes = [
    },
    {
       "s":12,
-      "title":"HOM\u042f",
+      "title":"HOMЯ",
       "e":257,
       "airing":"2001-01-07"
    },
