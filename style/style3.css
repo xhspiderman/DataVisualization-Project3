@@ -93,11 +93,6 @@ select {
   float:center;
 }
 
-.col-md-8{
-  position: absolute;
-  top:0px;
-  left:200px;
-  border:1px solid black;
 .seasonLabel{
   font-size: 20pt;
   font-family: Consolas, courier;
