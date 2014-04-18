@@ -3,12 +3,25 @@
 
 var Links=TAFFY();
 var Links_heat=TAFFY();
+//define the selector
+$("select").multipleSelect({
+            filter: true,
+            placeholder: "Select a group to visualize",
+            onClick: function(view) {
+               console.log($("select").multipleSelect("getSelects","text"))
+               //$("select").multipleSelect("getSelects","text")
+            },
+            onOptgroupClick: function(view) {
+             console.log($("select").multipleSelect("getSelects","text"))
+            } 
+});
 
 $(main);
 
 // New mechanism is: input is javascript database object and we will create attribute of number of links
 //main function
 function main(){
+  selection();
   plotMain()
 }
 
