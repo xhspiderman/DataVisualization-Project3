@@ -2,6 +2,25 @@
 //authors: Alberto Gonzalez, Hao Xu date:April 2014
 
 function selection(){
+	//Fill the select bar
+	var all_characters = []
+	for (var i = 0; i<characters.length; i++ ){
+		all_characters.push(characters[i].page)
+		$("#select select").append('<option value="' + characters[i].page + '">'+ characters[i].page + '</option>');
+	}
+	//define the selector
+	$("select").multipleSelect({
+	            filter: true,
+	            placeholder: "Select characters",
+	            onClick: function(view) {
+	               console.log($("select").multipleSelect("getSelects","text"))
+	               //$("select").multipleSelect("getSelects","text")
+	            },
+	            onOptgroupClick: function(view) {
+	             console.log($("select").multipleSelect("getSelects","text"))
+	            } 
+	});
+
 	//Create the groups tags for the selector
 	var families = ["Burns","Simpson","Mann","Bouvier","Wiggum","Flanders","Quimby's","Muntz","Shelbyville","Sherri and Terri","Terwilliger","Szyslak"];
 	var bart_enemies = ["Anderson","Black Weasel","Sideshow Blob","Robert Terwilliger","Lucille Botzcowski","George Bush","Cadet leader","Cesar","Coach Krupt","David (Treehouse of Horror XVI)", "Dog (The Lastest Gun in the West)","Dorit","Dr. Demento (character)","Female Mail Carrier","Judge Constance Harm","Snake Jailbird","Jimbo Jones","Edna Krabappel","Lester","List of The Simpsons Game enemies","Math Book","Milhouse (Shelbyville)","Lord Montymort","Mr. Montone","Nelson Muntz","Platt","Shelbyville boy","Shelbyville lemonade boy's brother","Shelbyville Martin","Shelbyville Nelson","Sherri Mackleberry","Hugo Simpson II","Seymour Skinner","S cont.","Speed-E-Mart owner","Dolph Starbeam","Suzanne","Terri Mackleberry","Cecil Terwilliger","Francesca Terwilliger","Gino Terwilliger","Robert Terwilliger Sr.","The Fat in the Hat","Ticket Bouncer","Ugolin","Dame Judith Underdunk","White Weasel", "Devan Woosterfield", "Quenley Woosterfield"];
@@ -42,10 +61,14 @@ function selection(){
 			}
 		}
 		//Fill selector with data
-		for (each in characters_select){
-			//$("#select select").append('<option value=' + characters_select[0][each].page + '>' + characters_select[0][each].page + '</option>');
-			$("#select select").append('<option value="0">Simpsons Family</option>');
+		var group_select = [];
+		for (each in characters_select[0]){
+			for (selection in characters_select){
+				group_select.push(characters_select[selection][each].page)
+			}
 		}
+		$("select").multipleSelect("setSelects", [])
+		$("select").multipleSelect("setSelects", group_select)
 		console.log(selector);
 		console.log(characters_select);
 	});
