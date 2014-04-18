@@ -30,7 +30,7 @@ function plotMain(){
   // $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   data_heat()
   initialization(row_objects_heat, column_objects_heat())
-  Plot(Links_heat().get(),0,"#chart_main", hcrow, hccol, rowLabel, colLabel)
+  Plot(Links_heat().get(),0,"#chart_main", hcrow, hccol, rowLabel, colLabel,row_objects_heat,column_objects_heat())
 }
 function mainClear(){
   Links_heat().remove()
@@ -44,7 +44,7 @@ function plotSeason(seasonNum){
   $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   data(seasonNum);
   initialization(ordered_row_objects, column_objects)
-  Plot(Links().get(), seasonNum,"#chart", hcrow, hccol, rowLabel, colLabel)
+  Plot(Links().get(), seasonNum,"#chart", hcrow, hccol, rowLabel, colLabel,ordered_row_objects,column_objects)
 }
 
 //Function to manage the data
@@ -134,7 +134,7 @@ function initialization(row_objects, column_objects){
       
 };
 
-function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
+function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row,column) {
 
       // color scale
       var colorScale = d3.scale.quantile()
@@ -245,10 +245,18 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel) {
                      .style("top", (d3.event.pageY-15) + "px")
                      .select("#value")
                      .html(function(){
-                        if(seasonNum==0){
-                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%";
+                        var currentCharacter = row.filter({ID:d.source})
+                        console.log(currentCharacter.first()["thumbURL"])
+                        if(currentCharacter.first()["thumbURL"]!="noURL"){
+                          var imageField = '<br/> <img src="'+currentCharacter.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="200">'
                         }else{
-                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)];
+                          var imageField = ''
+                        }
+                        if(seasonNum==0){
+                          console.log("Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField)
+                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField;
+                        }else{
+                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField;
                         };
                       })  
                    //Show the tooltip

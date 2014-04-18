@@ -1,6 +1,6 @@
 // codes used to generate characters_with_eps.js
-var tempResult = TAFFY()
-data_heat()
+// var tempResult = TAFFY()
+// data_heat()
 function data_heat(){
   row_objects_heat = characters_DB() // selected characters
   seasons = episodes_DB().order("s asec, e asec").distinct("s");  // selected seasons
