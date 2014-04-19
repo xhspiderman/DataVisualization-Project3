@@ -4,6 +4,9 @@
 var Links=TAFFY();
 var Links_heat=TAFFY();
 
+var Characters_to_show =  characters_episodes_DB().limit(10)
+
+
 $(main);
 
 // New mechanism is: input is javascript database object and we will create attribute of number of links
@@ -14,8 +17,9 @@ function main(){
 }
 
 function plotMain(){
+  console.log("exercuted")
   mainClear()
-  // $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
+  $("#chart_main").find("svg").hide('slow', function(){ $(this).remove(); });
   data_heat()
   initialization(row_objects_heat, column_objects_heat())
   Plot(Links_heat().get(),0,"#chart_main", hcrow, hccol, rowLabel, colLabel,row_objects_heat,column_objects_heat())
@@ -37,7 +41,9 @@ function plotSeason(seasonNum){
 
 //Function to manage the data
 function data(seasonNum){
-  row_objects = characters_episodes_DB().limit(10).order("totalAppear desc") // selected characters
+  row_objects = Characters_to_show // selected characters
+  row_objects = row_objects.order("totalAppear desc")
+  console.log(row_objects.get())
   column_objects = episodes_DB({s:seasonNum}).order("s asec, e asec") // selected episodes
   // Add an id field for each episode record
   column_objects.each(function (record,recordnumber) {
@@ -69,7 +75,9 @@ function data(seasonNum){
 
 //Function to manage the data for seasons heatmap
 function data_heat(){
-  row_objects_heat = characters_episodes_DB().limit(10).order("totalAppear desc") // selected characters
+  row_objects_heat = Characters_to_show // selected characters
+  row_objects_heat = row_objects_heat.order("totalAppear desc")
+  console.log(row_objects_heat.get())
   seasons = episodes_DB().order("s asec, e asec").distinct("s");  // selected seasons
   column_objects_heat = TAFFY()
 
@@ -234,14 +242,13 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                      .select("#value")
                      .html(function(){
                         var currentCharacter = row.filter({ID:d.source})
-                        console.log(currentCharacter.first()["thumbURL"])
+                        // console.log(currentCharacter.first()["thumbURL"])
                         if(currentCharacter.first()["thumbURL"]!="noURL"){
                           var imageField = '<br/> <img src="'+currentCharacter.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="200">'
                         }else{
                           var imageField = ''
                         }
                         if(seasonNum==0){
-                          console.log("Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField)
                           return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField;
                         }else{
                           return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField;

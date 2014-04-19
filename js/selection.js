@@ -51,13 +51,16 @@ function selection(){
 		if (type =="lisa_enemies") selector = lisa_enemies;
 		for (each in selector){
 	  		//Obtain values from the db depending on the selection
-	  		if (characters_DB({name:{like:selector[each]}}).get().length != 0)
+            var tempQuery_name = characters_episodes_DB({name:{like:selector[each]}})
+            var tempQuery_page = characters_episodes_DB({page:{is:selector[each]}})
+
+	  		if (tempQuery_name.get().length != 0)
 	  		{
-	  			if (type=='families') characters_select.push(characters_DB({name:{like:selector[each]}}).get())
+	  			if (type=='families') characters_select.push(tempQuery_name.get())
 			}
-			if (characters_DB({page:{is:selector[each]}}).get().length != 0)
+			if (tempQuery_page.get().length != 0)
 			{
-				if (type!='families') characters_select.push(characters_DB({page:{is:selector[each]}}).get())
+				if (type!='families') characters_select.push(tempQuery_page.get())
 			}
 		}
 		//Fill selector with data
@@ -71,6 +74,11 @@ function selection(){
 		$("select").multipleSelect("setSelects", group_select)
 		console.log(selector);
 		console.log(characters_select);
+		// console.log(group_select)
+		// This changes the global characters to show variable
+		Characters_to_show =  characters_episodes_DB({page:group_select})
+		
+		plotMain()
 	});
 
 	var gradient = {
@@ -145,5 +153,5 @@ function selection(){
     		return "rotate (" + Math.random()*50 + ")"
     	})
    	*/   	
-}
+};
 
