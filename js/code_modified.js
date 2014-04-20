@@ -3,8 +3,9 @@
 
 var Links=TAFFY();
 var Links_heat=TAFFY();
+var Links_co = TAFFY();
 
-var Characters_to_show =  characters_episodes_DB().limit(10)
+var Characters_to_show =  characters_episodes_DB().limit(20)
 
 
 $(main);
@@ -14,12 +15,14 @@ $(main);
 function main(){
   selection();
   plotMain()
+  plotCo()
 }
 
 function plotMain(){
-  console.log("exercuted")
   mainClear()
+  $("#chart").find("svg").hide('slow', function(){ $(this).remove(); });
   $("#chart_main").find("svg").hide('slow', function(){ $(this).remove(); });
+  $("#chart_main").show()
   data_heat()
   initialization(row_objects_heat, column_objects_heat())
   Plot(Links_heat().get(),0,"#chart_main", hcrow, hccol, rowLabel, colLabel,row_objects_heat,column_objects_heat())
@@ -29,6 +32,17 @@ function mainClear(){
 }
 function seasonClear(){
   Links().remove()
+}
+function coocurrenceClear(){
+  Links_co().remove()
+}
+
+function plotCo(){
+  coocurrenceClear()
+  $("#chart_co").find("svg").hide('slow', function(){ $(this).remove(); });
+  data_coocurrance()
+  initialization(row_objects_co, column_objects_co)
+  Plot(Links_co().get(),-1,"#chart_co", hcrow, hccol, rowLabel, colLabel,row_objects_co,column_objects_co)
 }
 
 function plotSeason(seasonNum){
@@ -77,7 +91,7 @@ function data(seasonNum){
 function data_heat(){
   row_objects_heat = Characters_to_show // selected characters
   row_objects_heat = row_objects_heat.order("totalAppear desc")
-  console.log(row_objects_heat.get())
+  // console.log(row_objects_heat.get())
   seasons = episodes_DB().order("s asec, e asec").distinct("s");  // selected seasons
   column_objects_heat = TAFFY()
 
@@ -98,7 +112,46 @@ function data_heat(){
           }
       }
   });
+}
 
+function data_coocurrance(){
+  row_objects_co = Characters_to_show
+  row_objects_co = row_objects_co.order("totalAppear desc")
+  // console.log(row_objects_co.get())
+  // column_objects_co = row_objects_co
+
+  // update the number of episodes field of each character
+  row_objects_co.each(function (record,recordnumber) {
+      record.ID = recordnumber+1
+  });
+  column_objects_co = row_objects_co
+  
+  var countMAX =0
+  var countNNN =0
+  row_objects_co.each(function (record,recordnumber) {
+
+    column_objects_co.each(function(record_col, recordnumber_col){
+      // if(recordnumber_col!=recordnumber){
+          arr1 = record.EpisodeRecord
+          arr2 = record_col.EpisodeRecord
+          countNNN+=1
+          // console.log(countNNN)
+          // console.log(record.EpisodeRecord)
+          // console.log(record_col.EpisodeRecord)
+          var value = 0
+          for(var i=0; i<arr1.length;i++){
+            value+=arr1[i]*arr2[i];
+          }
+          value = Math.round(20*(value/540)-10)
+          if (value>countMAX){
+            // console.log("max is: "+value)
+            countMAX = value
+          }
+          // console.log("value is: "+value)
+          Links_co.insert({"source":record["ID"], "target":record_col["ID"], "value":value.toString()})
+      // }
+    })
+  });
 }
 
 function initialization(row_objects, column_objects){
@@ -124,8 +177,16 @@ function initialization(row_objects, column_objects){
 
       rowLabel = row_objects.select("page"); 
       // rowLabel = ['1759080_s_at','1759302_s_at','1759502_s_at','1759540_s_at','1759781_s_at','1759828_s_at','1759829_s_at','1759906_s_at','1760088_s_at','1760164_s_at','1760453_s_at','1760516_s_at','1760594_s_at','1760894_s_at','1760951_s_at','1761030_s_at','1761128_at','1761145_s_at','1761160_s_at','1761189_s_at','1761222_s_at','1761245_s_at','1761277_s_at','1761434_s_at','1761553_s_at','1761620_s_at','1761873_s_at','1761884_s_at','1761944_s_at','1762105_s_at','1762118_s_at','1762151_s_at','1762388_s_at','1762401_s_at','1762633_s_at','1762701_s_at','1762787_s_at','1762819_s_at','1762880_s_at','1762945_s_at','1762983_s_at','1763132_s_at','1763138_s_at','1763146_s_at','1763198_s_at','1763383_at','1763410_s_at','1763426_s_at','1763490_s_at','1763491_s_at'], // change to gene name or probe id
+      // console.log(column_objects.select("page"))
+      if(column_objects.select("page")[0]){
 
-      colLabel = column_objects.select("title");
+        colLabel = column_objects.select("page");
+        // console.log(colLabel)
+      }else{
+        colLabel = column_objects.select("title");
+        // console.log(colLabel)
+      }
+      
       // colLabel = ['con1027','con1028','con1029','con103','con1030','con1031','con1032','con1033','con1034','con1035','con1036','con1037','con1038','con1039','con1040','con1041','con108','con109','con110','con111','con112','con125','con126','con127','con128','con129','con130','con131','con132','con133','con134','con135','con136','con137','con138','con139','con14','con15','con150','con151','con152','con153','con16','con17','con174','con184','con185','con186','con187','con188','con189','con191','con192','con193','con194','con199','con2','con200','con201','con21']; // change to contrast name
       
 };
@@ -149,7 +210,11 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
           .text(function (d) { 
             if(seasonNum==0){
               return ""
-            }else{
+            }
+            else if(seasonNum==-1){
+              return "Co-ocurrence"
+            }
+            else{
               return "Season "+seasonNum
             }; })
           .attr("x", 0)
@@ -168,8 +233,10 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
           .on("mouseover", function(d) {d3.select(this).classed("home-hover",true);})
           .on("mouseout" , function(d) {d3.select(this).classed("home-hover",false);})
           .on("click", function(d,i) {
-           $("#chart_main").show("fast") ;
-           $("#chart").hide("fast");
+            if(seasonNum != -1){
+              $("#chart_main").show("fast") ;
+              $("#chart").hide("fast");
+            }
           })
 
       var rowLabels = svg.append("g")
@@ -250,7 +317,23 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                         }
                         if(seasonNum==0){
                           return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField;
-                        }else{
+                        }else if(seasonNum==-1){
+
+                          if(currentCharacter.first()["thumbURL"]!="noURL"){
+                            var imageField = '<br/> <img src="'+currentCharacter.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="80" height="130">'
+                          }else{
+                            var imageField = ''
+                          }
+                          var current_col = column.filter({ID:d.target})
+                          if(current_col.first()["thumbURL"]!="noURL"){
+                            var imageField2 = '<img src="'+current_col.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="80" height="130">'
+                          }else{
+                            var imageField2 = ''
+                          }
+                          
+                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Character: "+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Cooccurrence Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField+imageField2;
+                        }
+                        else{
                           return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField;
                         };
                       })  
@@ -263,8 +346,12 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                    d3.selectAll(".colLabel").classed("text-highlight",false);
                    d3.select("#tooltip").classed("hidden", true);
             });
-      if(seasonNum==0){
+      if(seasonNum==0 || seasonNum==-1){
+
           var legendElementWidth = 35
+          if(seasonNum==-1){
+            legendElementWidth = 25
+          }
           var legend = svg.selectAll(".legend")
               .data([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10])
               .enter().append("g")

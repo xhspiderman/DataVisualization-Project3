@@ -72,13 +72,14 @@ function selection(){
 		}
 		$("select").multipleSelect("setSelects", [])
 		$("select").multipleSelect("setSelects", group_select)
-		console.log(selector);
-		console.log(characters_select);
+		// console.log(selector);
+		// console.log(characters_select);
 		// console.log(group_select)
 		// This changes the global characters to show variable
 		Characters_to_show =  characters_episodes_DB({page:group_select})
 		
 		plotMain()
+		plotCo()
 	});
 
 	var gradient = {
