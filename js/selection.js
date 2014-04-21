@@ -81,7 +81,7 @@ function selection(){
 	};
 
 	if(!$('#myCanvas').tagcanvas({
-	  textColour: '#ff0000',
+	  textColour: '#fffff',
 	  outlineColour: '#ff00ff',
 	  reverse: true,
 	  depth: 0.8,
@@ -97,53 +97,4 @@ function selection(){
 	  // something went wrong, hide the canvas container
 	  $('#myCanvasContainer').hide();
 	}
-	//var groups = ["Simpsons Family", "Flanders Family", "Milhouse Family", "Quenley Family"]
-	/*var margin = { top: 30, right: 20, bottom: 30, left: 50 },
-    			width = 700, 
-    			height = 200
-
-    var svg = d3.select("body")
-    			.append("div")
-    			.attr("class","row")
-    			.append("div")
-    			.attr("class","col-md-8")
-    			.append("svg")
-    			.attr("class","svg_word")
-    			.attr("width",width+margin.left+margin.right)
-    			.attr("height",height+margin.top+margin.bottom)
-    			.attr("class","selector")
-    			.on("mouseover", function(d,i){
-    				text.transition()
-  					.attr("x",Math.random()*500)
-  					.attr("y",Math.random()*150)
-  					for (var i=0; i<4; i++){
-  						d3.select(text[0][i])
-  							.attr("font-size", Math.random()*20+10)
-  							.transition()
-  							.attr("x",Math.random()*500)
-  							.attr("y",Math.random()*50)
-  					}
-    	}) 
-
-    var text = svg.selectAll("text")
-    	.data(groups)
-    	.enter()
-    	.append("text")
-    	.text(function(d){
-    		return d
-    	})
-    	.attr("font-size", function(){
-    		return Math.random()*20+10;
-    	})
-    	.attr("x",function(){
-    		return Math.random()*500;
-    	})
-    	.attr("y",function(){
-    		return Math.random()*150;
-    	})
-    	.attr("transform", function(d,i){
-    		return "rotate (" + Math.random()*50 + ")"
-    	})
-   	*/   	
 }
-
