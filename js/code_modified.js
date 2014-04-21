@@ -6,8 +6,8 @@ var Links_heat=TAFFY();
 var Links_co = TAFFY();
 
 var Characters_to_show =  characters_episodes_DB().limit(20)
-//We always show first the first element in the card
-var charact_card = 0; 
+//We always show first the first element in the card 
+var episode_card = 0;
 
 
 $(main);
@@ -18,7 +18,7 @@ function main(){
   selection();
   plotMain();
   plotCo();
-  cards();
+  //cards();
 }
 
 function plotMain(){
@@ -348,6 +348,22 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                    d3.selectAll(".rowLabel").classed("text-highlight",false);
                    d3.selectAll(".colLabel").classed("text-highlight",false);
                    d3.select("#tooltip").classed("hidden", true);
+            })
+            .on("click", function(d,i) { 
+            if(seasonNum > 0){ 
+              console.log(rowLabel[hcrow.indexOf(d.source)]+","+colLabel[hccol.indexOf(d.target)]);
+              charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
+              //episode_card = characters_episodes_DB({voicedBy:{"like":hccol.indexOf(d.target)}}).get()
+              updateChar(charact_card);
+              console.log(charact_card)
+              console.log(episode_card)
+            }
+            if (seasonNum == 0){
+              console.log(rowLabel[hcrow.indexOf(d.source)]);
+              charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
+              updateChar(charact_card);
+              console.log(charact_card)
+            }
             });
       if(seasonNum==0 || seasonNum==-1){
 
