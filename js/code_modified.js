@@ -6,6 +6,8 @@ var Links_heat=TAFFY();
 var Links_co = TAFFY();
 
 var Characters_to_show =  characters_episodes_DB().limit(20)
+//We always show first the first element in the card
+var charact_card = 0; 
 
 
 $(main);
@@ -14,8 +16,9 @@ $(main);
 //main function
 function main(){
   selection();
-  plotMain()
-  plotCo()
+  plotMain();
+  plotCo();
+  cards();
 }
 
 function plotMain(){

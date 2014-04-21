@@ -77,7 +77,9 @@ function selection(){
 		// console.log(group_select)
 		// This changes the global characters to show variable
 		Characters_to_show =  characters_episodes_DB({page:group_select})
-		
+		//Initialize the cards 
+		charact_card = 0;
+		update(charact_card);
 		plotMain()
 		plotCo()
 	});
@@ -155,5 +157,3 @@ function selection(){
     	})
    	*/   	
 };
-
->>>>>>> FETCH_HEAD
