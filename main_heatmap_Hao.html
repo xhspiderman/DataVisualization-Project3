@@ -8,6 +8,7 @@
       <script src="lib/jquery/jquery-1.11.0.min.js"></script>
       <script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
       <script src="lib/multiple-select-master/jquerymultipleselect.js"></script>
+      <script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
       <script src="lib/D3/d3.v3.min.js"></script>
       <script src="lib/taffy/taffy.js"></script>
       <script src="lib/tagCanvas/jquery.tagcanvas.js"></script>
@@ -29,6 +30,7 @@
       var characters_info_DB = TAFFY(characters_info); // characters with image from us
       var locations_DB = TAFFY(locations);  //locations from Andy
       var characters_episodes_DB = TAFFY(characters_with_episode_information);
+      var menutoggle=1
       </script>
       <!--Stylesheets-->
       <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,6 +40,58 @@
 
   </head>
   <body> 
+
+  <div id='cusmenubar'  class='row draggable'  style='position:fixed;top:0px;left:0px;z-index:999;width:100%;margin-left:0px !important;margin-right:0px !important;'>
+
+      <ul class='col-xs-12 menuul' style=''>
+      <li  class='col-xs-2 menuim text-center'><img src="simpsons_logo.jpg" alt="We Are Family" class="img-circle menuIMG" style='border:2px solid #c7bfbf;'>
+        </li>
+        <li class='col-xs-2 menuli text-center' style=''>
+               <a class="searchbychar" href="#" data-target="characters" style="text-decoration: none">Characters</a>
+        </li>
+        <li class='col-xs-2 menuli text-center' style=''>
+               <a class="searchbychar" href="#" data-target="chart_co" style="text-decoration: none">CO-occurrence</a>
+        </li>
+        <li class='col-xs-2 menuli text-center' id='instructionsdivmenu' style=''>
+          Instructions
+        </li>
+        <li class='col-xs-2 menuli text-center' id="interestingfindingdivmenu" style=''>
+          Interesting Findings
+        </li>
+        <li class='col-xs-2 menuli text-center' id='otherinformationdivmenu' style=''>
+          Other Information
+        </li>
+      </ul>
+
+  </div>
+<div id='apps'>
+    <br>
+    <br>
+    <br>
+<!--   <div id='characters' class='row ' style='background-color:white;padding-left:10px;'>
+
+  </div>
+  <hr class="featurette-divider">
+  <div id='coocurrance' class='row ' style='background-color:white; padding-left:10px;'>
+
+  </div> -->
+
+  <div id='instructionsdiv'>
+ 
+
+  </div >
+
+  <div id='instructionsdiv'>
+ 
+
+  </div >
+
+  <div id='otherinformationdiv'>
+
+
+  </div >
+
+<!-- *************************************** -->
     <div class="row">
       <div id="tooltip" class="hidden" style="z-index:10;">
         <p><span id="value"></p>
@@ -57,15 +111,73 @@
         </div>
       </div>
       <div class="col-xs-10">
+          <div id="characters">
           <div class='col-xs-12' id="chart_main" style='overflow:auto;'></div>
           <div class='col-xs-12' id="chart" style='overflow:auto;'></div>
+          </div>
           <div class='col-xs-12' id="chart_co" style='overflow:auto;'></div>
       </div>
     </div>
+<!-- ********************************************* -->
+</div>
+  <footer class="row">
+  <p class="col-md-2 col-md-offset-5">Hao Xu &amp; Alberto 2014</p>
+  </footer>
+    <script>
+    //Animation 
+    $('#otherinformationdiv').hide()
+    $('#instructionsdiv').hide()
+    $( ".draggable" ).draggable({
+        start: function(event, ui) {
+            $(this).addClass('noclick');
+        }
+    });
+    $( '.searchbychar' ).on('click', function(event) {
+        event.preventDefault();
+        var target = "#" + $(this).data('target');
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 200);
+        $('#apps').show('fast')
+        $('#instructionsdiv').hide()
+        $('#otherinformationdiv').hide()
+    });
+    $('.menuim').on('click',function(event){
+      if ($(this).closest('#cusmenubar').hasClass('noclick')) {
+            $(this).closest('#cusmenubar').removeClass('noclick');
+        }
+        else {
+        if(menutoggle===1){
+        $(this).siblings().hide('fast')
+        $(this).closest('ul').css("background-color", "transparent")
+        $(this).find('img').css({width : '35px',height : '35px'})
+            // $( "#draggable" ).draggable();
+        menutoggle=0;
+        }else{
+        $(this).siblings().show('fast') 
+        $(this).closest('ul').css("background-color", "#ecf0f1")
+        $(this).find('img').css({width : '60px',height : '60px'})
+        $(this).closest('#cusmenubar').css({top : '0px', left : '0px'})
+        // $( "#draggable" ).draggable();
+        menutoggle=1;
+        }
+          }
+    })
+    $('#instructionsdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').hide('fast')
+      $('#instructionsdiv').show('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    $('#otherinformationdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').show('fast')
+      $('#instructionsdiv').hide('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    </script>
   </body>
-  <footer>
   <script type="text/javascript" src="js/code_modified.js"></script>
   <!-- <script type="text/javascript" src="js/generate.js"></script> -->
   <script src="js/selection.js"></script>
-  </footer>
 </html>

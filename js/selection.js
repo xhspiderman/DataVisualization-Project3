@@ -11,6 +11,7 @@ function selection(){
 	}
 	//define the selector
 	$("select").multipleSelect({
+				width:200,
 	            filter: true,
 	            placeholder: "Select characters",
 	            onClick: function(view) {
