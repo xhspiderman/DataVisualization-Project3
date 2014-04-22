@@ -352,8 +352,9 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
             if(seasonNum > 0){ 
               console.log(rowLabel[hcrow.indexOf(d.source)]+","+colLabel[hccol.indexOf(d.target)]);
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
-              //episode_card = characters_episodes_DB({voicedBy:{"like":hccol.indexOf(d.target)}}).get()
+              episode_card = episodes_DB({title:{"is": colLabel[hccol.indexOf(d.target)]}}).get()
               updateChar(charact_card);
+              updateEpisode(episode_card)
             }
             if (seasonNum == 0){
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
