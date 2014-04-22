@@ -159,8 +159,8 @@ function data_coocurrance(){
 function initialization(row_objects, column_objects){
 
   // Basic setup for plot
-    margin = { top: 160, right: 10, bottom: 100, left: 180 },
-    cellSize=35;
+    margin = { top: 160, right: 10, bottom: 100, left: 230 },
+    cellSize=30;
     col_number=column_objects.count();
     row_number=row_objects.count();
     width = cellSize*col_number, 

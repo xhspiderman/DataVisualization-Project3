@@ -101,6 +101,7 @@ function selection(){
 	  textColour: '#fffff',
 	  outlineColour: 'green',
 	  outlineMethod: 'colour',
+	   textFont: 'Consolas, courier',
 	  outlineThickness: 5,
 	  minBrightness:0,
 	  maxBrightness:0.5,

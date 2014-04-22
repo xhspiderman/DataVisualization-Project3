@@ -25,7 +25,14 @@ function updateChar (i){
 
 		//Manage the clicking on the voicedBy character card
 		$( "#char_card a" ).click(function() {
-	  		Characters_to_show=characters_episodes_DB({voicedBy:{"like": this.text}})
+			var querystring = this.text
+			Characters_to_show = characters_episodes_DB(function () {
+			    for(var i=0; i<this.voicedBy.length;i++){
+				    return (this.voicedBy[i].trim() == querystring) ? true : false;
+			    }
+			    return false
+			})
+	  		//Characters_to_show=characters_episodes_DB({voicedBy:{"like": this.text}})
 	  		//Plot the heatmap again with the new selection
 	  		plotMain();
   			plotCo();
