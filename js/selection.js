@@ -14,7 +14,6 @@ function selection(){
 	            placeholder: "Select characters",
 	            onClick: function(view) {
 	               console.log($("select").multipleSelect("getSelects","text"))
-	               //$("select").multipleSelect("getSelects","text")
 	            },
 	            onOptgroupClick: function(view) {
 	             console.log($("select").multipleSelect("getSelects","text"))
@@ -72,16 +71,12 @@ function selection(){
 		}
 		$("select").multipleSelect("setSelects", [])
 		$("select").multipleSelect("setSelects", group_select)
-		// console.log(selector);
-		// console.log(characters_select);
-		// console.log(group_select)
 		// This changes the global characters to show variable
-		Characters_to_show =  characters_episodes_DB({page:group_select})
+		Characters_to_show =  characters_episodes_DB({page:group_select});
 		//Initialize the cards 
-		charact_card = 0;
-		update(charact_card);
-		plotMain()
-		plotCo()
+		updateChar(Characters_to_show.get());
+		plotMain();
+		plotCo();
 	});
 
 	var gradient = {
@@ -108,52 +103,4 @@ function selection(){
 	  // something went wrong, hide the canvas container
 	  $('#myCanvasContainer').hide();
 	}
-	//var groups = ["Simpsons Family", "Flanders Family", "Milhouse Family", "Quenley Family"]
-	/*var margin = { top: 30, right: 20, bottom: 30, left: 50 },
-    			width = 700, 
-    			height = 200
-
-    var svg = d3.select("body")
-    			.append("div")
-    			.attr("class","row")
-    			.append("div")
-    			.attr("class","col-md-8")
-    			.append("svg")
-    			.attr("class","svg_word")
-    			.attr("width",width+margin.left+margin.right)
-    			.attr("height",height+margin.top+margin.bottom)
-    			.attr("class","selector")
-    			.on("mouseover", function(d,i){
-    				text.transition()
-  					.attr("x",Math.random()*500)
-  					.attr("y",Math.random()*150)
-  					for (var i=0; i<4; i++){
-  						d3.select(text[0][i])
-  							.attr("font-size", Math.random()*20+10)
-  							.transition()
-  							.attr("x",Math.random()*500)
-  							.attr("y",Math.random()*50)
-  					}
-    	}) 
-
-    var text = svg.selectAll("text")
-    	.data(groups)
-    	.enter()
-    	.append("text")
-    	.text(function(d){
-    		return d
-    	})
-    	.attr("font-size", function(){
-    		return Math.random()*20+10;
-    	})
-    	.attr("x",function(){
-    		return Math.random()*500;
-    	})
-    	.attr("y",function(){
-    		return Math.random()*150;
-    	})
-    	.attr("transform", function(d,i){
-    		return "rotate (" + Math.random()*50 + ")"
-    	})
-   	*/   	
 };

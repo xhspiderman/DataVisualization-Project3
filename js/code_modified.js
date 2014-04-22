@@ -18,7 +18,6 @@ function main(){
   selection();
   plotMain();
   plotCo();
-  //cards();
 }
 
 function plotMain(){
@@ -355,14 +354,10 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
               //episode_card = characters_episodes_DB({voicedBy:{"like":hccol.indexOf(d.target)}}).get()
               updateChar(charact_card);
-              console.log(charact_card)
-              console.log(episode_card)
             }
             if (seasonNum == 0){
-              console.log(rowLabel[hcrow.indexOf(d.source)]);
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
               updateChar(charact_card);
-              console.log(charact_card)
             }
             });
       if(seasonNum==0 || seasonNum==-1){
