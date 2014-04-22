@@ -4,6 +4,7 @@
 function selection(){
 	//Fill the select bar
 	var all_characters = []
+	var group_select = [];
 	for (var i = 0; i<characters.length; i++ ){
 		all_characters.push(characters[i].page)
 		$("#select select").append('<option value="' + characters[i].page + '">'+ characters[i].page + '</option>');
@@ -13,10 +14,19 @@ function selection(){
 	            filter: true,
 	            placeholder: "Select characters",
 	            onClick: function(view) {
-	               console.log($("select").multipleSelect("getSelects","text"))
+	               	//console.log($("select").multipleSelect("getSelects","text"))
+	               	group_select = $("select").multipleSelect("getSelects","text");
+	               	for (each in group_select){
+	               		length = $("select").multipleSelect("getSelects","text")[each].length
+	               		group_select[each] = $("select").multipleSelect("getSelects","text")[each].slice(1,length);
+	               	}
+	               	Characters_to_show =  characters_episodes_DB({page:group_select});
+	              	updateChar(Characters_to_show.get());
+					plotMain();
+					plotCo();
 	            },
 	            onOptgroupClick: function(view) {
-	             console.log($("select").multipleSelect("getSelects","text"))
+	             	console.log($("select").multipleSelect("getSelects","text"))
 	            } 
 	});
 
@@ -30,7 +40,7 @@ function selection(){
 	//Add tags to selector
 	for (each in families){
 		families[each]=families[each] + ' Family';
-		$("#tags ul").append('<li><a href="#families" data-weight="10"' + '>' + families[each] + '</a> Family' + '</li>');
+		$("#tags ul").append('<li><a href="#families" data-weight="10"' + '>' + families[each] + '</a>' + '</li>');
 	}
 	$("#tags ul").append('<li><a href="#bart_enemies" data-weight="30"' + '>' + 'Bart Enemies' + '</a>' + '</li>');
 	$("#tags ul").append('<li><a href="#second" data-weight="11"' + '>' + '2nd Grade Students' + '</a>' + '</li>');
@@ -63,7 +73,8 @@ function selection(){
 			}
 		}
 		//Fill selector with data
-		var group_select = [];
+		//clear actual group_select
+		group_select = []
 		for (each in characters_select[0]){
 			for (selection in characters_select){
 				group_select.push(characters_select[selection][each].page)
