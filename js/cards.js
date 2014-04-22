@@ -43,6 +43,9 @@ function updateEpisode (i){
 		var info_season = $('#info_episode').append('<p>' + i[0].s + 'th. Season</p>')
 		var info_episode = $('#info_episode').append('<p>'+ i[0].e + 'th. Episode</p>')
 		var info_airing = $('#info_episode').append('<p>Aired in: '+ i[0].airing +'</p>')
+		var info_locations = $('#info_episode').append('<p>Locations :</p>')
+		//calculate locations
+		locations(i[0].title);
 
 		//Manage the clicking on the voicedBy character card
 		$( "#episode_card a" ).click(function() {
@@ -51,4 +54,11 @@ function updateEpisode (i){
 	  		plotMain();
   			plotCo();
 		});
+		//we use this function to calculate the locations for each episode
+		function locations(episode){
+			locations = locations_DB({appearances:{"like": episode}}).get()
+			for (each in locations){
+				$('#info_episode').append('<p>'+ locations[each].location +'</p>')
+			}
+		}
 }
