@@ -221,8 +221,20 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
             }; })
           .attr("x", 0)
           .attr("y", 0)
-          .attr("transform", "translate(-85, 0) rotate(-45)")
-          .attr("class", "seasonLabel")
+          .attr("transform", function (d) { 
+            if(seasonNum==-1){
+              return "translate(-93, 0) rotate(-45)"
+            }
+            else{
+              return "translate(-85, 0) rotate(-45)"
+            }; })
+          .attr("class", function (d) { 
+            if(seasonNum==-1){
+              return "seasonLabel2"
+            }
+            else{
+              return "seasonLabel"
+            }; })
 
       var homeLabel = svg.append("g")
           .append('svg:foreignObject')

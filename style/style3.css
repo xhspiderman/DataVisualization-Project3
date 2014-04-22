@@ -98,6 +98,11 @@ select {
   font-family: Consolas, courier;
   fill: #a63467;
 }
+.seasonLabel2{
+  font-size: 16pt;
+  font-family: Consolas, courier;
+  fill: #a63467;
+}
 
 .home-hover{
   color:#a63467;

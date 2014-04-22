@@ -55,7 +55,7 @@
         <li class='col-xs-2 menuli text-center' id='instructionsdivmenu' style=''>
           Instructions
         </li>
-        <li class='col-xs-2 menuli text-center' id="interestingfindingdivmenu" style=''>
+        <li class='col-xs-2 menuli text-center' id="interestingdivmenu" style=''>
           Interesting Findings
         </li>
         <li class='col-xs-2 menuli text-center' id='otherinformationdivmenu' style=''>
@@ -65,9 +65,9 @@
 
   </div>
 <div id='apps'>
+
     <br>
-    <br>
-    <br>
+
 <!--   <div id='characters' class='row ' style='background-color:white;padding-left:10px;'>
 
   </div>
@@ -76,29 +76,17 @@
 
   </div> -->
 
-  <div id='instructionsdiv'>
- 
-
-  </div >
-
-  <div id='instructionsdiv'>
- 
-
-  </div >
-
-  <div id='otherinformationdiv'>
-
-
-  </div >
-
 <!-- *************************************** -->
-    <div class="row">
+    <div class="row"  style='padding-left:4px;'>
       <div id="tooltip" class="hidden" style="z-index:10;">
         <p><span id="value"></p>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2" >
+        <br>
+        <br>
+        <br>
         <div id="select">
-          <select multiple="multiple">
+          <select multiple="multiple" style='width:250px;'>
           </select>
         </div>
         <div id="myCanvasContainer">
@@ -115,11 +103,49 @@
           <div class='col-xs-12' id="chart_main" style='overflow:auto;'></div>
           <div class='col-xs-12' id="chart" style='overflow:auto;'></div>
           </div>
+          <hr class="featurette-divider">
           <div class='col-xs-12' id="chart_co" style='overflow:auto;'></div>
       </div>
     </div>
 <!-- ********************************************* -->
 </div>
+
+<div id='instructionsdiv'>
+Instructions
+<br>
+  Instructions
+<br>
+  Instructions
+<br>
+  Instructions
+<br>
+
+</div >
+
+<div id='interestingdiv'>
+Interesting Findings
+<br>
+  Interesting Findings
+<br>
+  Interesting Findings
+<br>
+  Interesting Findings
+<br>
+
+</div >
+
+<div id='otherinformationdiv'>
+Other Information
+<br>
+  Other Information
+<br>
+  Other Information
+<br>
+  Other Information
+<br>
+
+</div >
+
   <footer class="row">
   <p class="col-md-2 col-md-offset-5">Hao Xu &amp; Alberto 2014</p>
   </footer>
@@ -127,6 +153,7 @@
     //Animation 
     $('#otherinformationdiv').hide()
     $('#instructionsdiv').hide()
+    $('#interestingdiv').hide()
     $( ".draggable" ).draggable({
         start: function(event, ui) {
             $(this).addClass('noclick');
@@ -141,6 +168,7 @@
         $('#apps').show('fast')
         $('#instructionsdiv').hide()
         $('#otherinformationdiv').hide()
+        $('#interestingdiv').hide()
     });
     $('.menuim').on('click',function(event){
       if ($(this).closest('#cusmenubar').hasClass('noclick')) {
@@ -166,6 +194,7 @@
     $('#instructionsdivmenu').on('click',function(event){
       $('#apps').hide('fast')
       $('#otherinformationdiv').hide('fast')
+      $('#interestingdiv').hide('fast')
       $('#instructionsdiv').show('fast')
       $("html, body").animate({ scrollTop: 0 }, "fast");
     })
@@ -173,6 +202,14 @@
       $('#apps').hide('fast')
       $('#otherinformationdiv').show('fast')
       $('#instructionsdiv').hide('fast')
+      $('#interestingdiv').hide('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    $('#interestingdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').hide('fast')
+      $('#instructionsdiv').hide('fast')
+      $('#interestingdiv').show('fast')
       $("html, body").animate({ scrollTop: 0 }, "fast");
     })
     </script>
