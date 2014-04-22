@@ -99,16 +99,20 @@ function selection(){
 
 	if(!$('#myCanvas').tagcanvas({
 	  textColour: '#fffff',
-	  outlineColour: '#ff00ff',
+	  outlineColour: 'green',
+	  outlineMethod: 'colour',
+	  outlineThickness: 5,
+	  minBrightness:0,
+	  maxBrightness:0.5,
 	  reverse: true,
 	  depth: 0.8,
-	  initial: [-0.130, 0.200],
+	  zoom: 1.5,
+	  wheelZoom: false,
+	  initial: [-0.130, 0.100],
 	  textHeight: 10,
-	  weightFrom:'data-weight',
-	  weightMode: 'both',
-	  weightSizeMin:1.0,
-	  weightSizeMax:15,
-	  weightGradient: gradient,
+	  shadow: "#fff00",
+	  shuffleTags: true,
+	  decel:1, //We don't stop the rotating canvas when going out
 	  maxSpeed: 0.05
 	},'tags')) {
 	  // something went wrong, hide the canvas container
