@@ -101,7 +101,7 @@ function updateEpisode (i){
 		function location_name(episode){
 			var location_name = [];
 			locations = locations_DB({appearances:{"like": episode}}).get();
-			$('#info_episode').append('<p id="locations"> Locations in the episode</p>')
+			$('#info_episode').append('<p id="locations"><u> Locations in the episode</u></p>')
 			if (locations_img.length > 1) var buttons = $("#info_episode").append('<ul class="pager"><li class="Next"><a id="prev" href="#info_episode">&larr; Prev</a></li><li class="next"><a id="next" href="#info_episode">Next &rarr;</a></li></ul>')
 			var location_name = $('#info_episode').append('<p id="location_name">' + locations[0].location + '</p>')
 			for (each in locations){
