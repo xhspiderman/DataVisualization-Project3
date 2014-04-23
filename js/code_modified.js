@@ -379,7 +379,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
 
           var legendElementWidth = 35
           if(seasonNum==-1){
-            legendElementWidth = 20
+            legendElementWidth = 19
             console.log("legend width:"+legendElementWidth)
           }
           var legend = svg.selectAll(".legend")

@@ -98,12 +98,12 @@
           <ul></ul>
         </div>
       </div>
-      <div class="col-xs-10">
+      <div class="col-xs-10" style="padding-left:0px;">
           <div id="characters">
-          <div class='col-xs-12' id="chart_main" style='overflow:auto;'></div>
-          <div class='col-xs-12' id="chart" style='overflow:auto;'></div>
+          <div class='col-xs-12' id="chart_main" style='overflow:auto;padding-left:0px;'></div>
+          <div class='col-xs-12' id="chart" style='overflow:auto;padding-left:0px;'></div>
           </div>
-          <hr class='col-xs-12 featuredivider'>
+          <hr class='col-xs-12 featuredivider' style="margin-left:43px; height:3px;background-color:rgb(247, 247, 247);">
           <div class='col-xs-12' id="chart_co" style='overflow:auto;'></div>
       </div>
     </div>
@@ -111,16 +111,93 @@
 </div>
 
 <div id='instructionsdiv'>
-Instructions
-<br>
-  Instructions
-<br>
-  Instructions
-<br>
-  Instructions
-<br>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>We Are Family</h1>
+        <p>Here you will discover:<em> What important characters at the beginning disappeared later on? What important characters only appeared later in the series? Which characters are always seen together? Which voice actors voiced the most characters in a single episode? Which characters appeared (even briefly) every season (or most seasons)?</em></p>
+        <p class="text-muted"><small>In this project we take a look at 25 years of 'The Simpsons.'There are about 550 episodes by the end of the current 25th season with 200 main characters, 2500 total characters (including people, animals, etc) voiced by 12 major voice actors. All of them are visualized in this application</small></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href='https://github.com/xhspiderman/DataVisualization-Project3'>Learn more</a></p>
+      </div>
+    </div>
 
-</div >
+    <div class="container">
+
+      <div class="row">
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Video Intro <span class="text-muted">details from the author</span></h2>
+            <p class="lead">One video introduction to dive into the usage of this app <span class="glyphicon glyphicon-hand-right"></span></p>
+          </div>
+          <div class="col-md-7">
+           <!-- <iframe width="640" height="360" src="//www.youtube.com/embed/ReOQ300AcSU?rel=0" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+        </div>
+        <br>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/nav.png" alt="Pie Chart">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Navigation Bar <span class="text-muted"> togglable &amp; draggable</span></h2>
+            <p class="lead">When the page is first loaded you can see the page navigation functions at the top of the page. Nav bar is used to navigate between different tabs and you can always toggle on the app icon to collapse the Nav Bar in order to have a better view in the application, you can also drag the nav bar to anywhere you like.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Heat Map(main) <span class="text-muted"> hover effects &amp; ordering</span></h2>
+            <p class="lead">The heat map gives you an overview about the appearance in each season, the higher the appear rate, the darker the color is. And a legend mark is also give in the bottom of the graph for quick reference. You can always hover on each block to see the highlighted name and season as well as the character's pic.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/heatHover.png" alt="top25iehover">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/seasonDetail.png" alt="ieUSmap">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Heat Map(detail)<span class="text-muted"> pick interesting seasons</span></h2>
+            <p class="lead">You can get to heat map detail view by click one of the seasons in home page, whether or not a character appears in that episode is visualized as a color block. By hovering on the block, you can get similar info like before. And by clicking on each block, two name cards about episode and character will be generated.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Name Card <span class="text-muted"> pics &amp; info</span></h2>
+            <p class="lead">Two types of cards are generated, one about character and one about episode. Detailed information will be listed. You can always click on the "voicedBy" attribute to pick all characters voiced by that character.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/nameCard.png" style="height:230px;" alt="ie hover">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/tagSelector.png" alt="ie toggle">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Selector<span class="text-muted"> checkbox &amp; cloud tag</span></h2>
+            <p class="lead">Two ways of selecting characters are provided, one is cloud tag which give you some random interesing groups to explore and the other give you checkbox style of selecing, search function is also included. By going to different areas of cloud tags you can rotate the tags correspondingly.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Co-occurrence Matrix<span class="text-muted"> Relationship Visualization</span></h2>
+            <p class="lead">This cooccurrence matrix enables you to view the bond between each pair of characters by showing how many episodes they both appear among all the Simpson series. The stronger the bond, the darker the color block, detailed info is also provided by hovering on each block.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/occurrence.png" alt="table toggle">
+          </div>
+        </div>
+        <hr>
+    </div>
+  </div>
+</div>
 
 <div id='interestingdiv'>
 Interesting Findings
@@ -135,14 +212,80 @@ Interesting Findings
 </div >
 
 <div id='otherinformationdiv'>
-Other Information
-<br>
-  Other Information
-<br>
-  Other Information
-<br>
-  Other Information
-<br>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Other Informations</h1>
+        <p>Here you will find more details about: <strong> Data Source</strong> | <strong>  Source Code</strong> | <strong>  Interesting Findings</strong> | <strong>  Project Progress List</strong></p>
+        <p><a href='https://github.com/xhspiderman/DataVisualization-Project2' class="btn btn-primary btn-lg" role="button">GO to Git Hub »</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <hr class="featurette-divider">
+        <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading">Data Source <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+          <p class="lead"><p>The data used for this visualization is provided by the US Census. It includes the top 25 imports and exports for each state; along with the top 25 countries they export to. The data can be downloaded at the census website <a href="http://www.censusgov/foreign-trade/statistics/state/data/index.html">here</a>.</p> <p>The data has been converted to a JSON format, then imported into a TaffyDB, a JavaScript database. You can read more about TaffyDB <a href="http://www.taffydb.com/">here</a>.</p>
+    <p>From there, the data is converted into a format suitable for Google Charts to create the visualizations you see.</p></p>
+        </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading">Source Code <span class="text-muted"><small><span class="glyphicon glyphicon-download-alt"></span></small></span></h2>
+          <p class="lead"><p>The code can be downloaded 
+    <a href="https://github.com/xhspiderman/DataVisualization-Project2">here</a>.
+    After you download the files, open the index2.html in a web browser to view the 
+    the visualizations. Explore the various visualizations and find some interesting 
+    things about the US imports and exports. Enjoy!</p></p>
+        </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading">Interesting Findings <span class="text-muted"><small><span class="glyphicon glyphicon-eye-open"></span></small></span></h2>
+          <p class="lead"><p>Soybeans are the 5th highest export in 2012 (23 billion), 7th highest in 2013 (20 billion)</p>
+    <p>Hawaii exports more shrimp than coffee.</p></p>
+        </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+        <div class="col-md-12">
+          <h2 class="featurette-heading">Project Progress List <span class="text-muted"><small><span class="glyphicon glyphicon-list"></span></small></span></h2>
+        <p class="lead">Anthony's Progress</p>
+      <p><b>3/19</b></p>
+      <p>Fixed db bug, info pages</p>
+      <p><b>3/14</b></p>
+      <p>Redo dbs for better integration, Added World Map</p>
+      <p><b>3/7</b></p>
+      <p>Add updated Databases with 2013 data</p>
+      <p><b>2/28</b></p>
+      <p>Added US map selector</p>
+      <p><b>2/21</b></p>
+      <p>Data mine, create DBs, and query demo</p>
+      <p class="lead">Hao's Progress</p>
+      <p><b>3/19</b></p>
+      <p>Added table for Top imports/exports, fixed all suggestions\</p>
+      <p><b>3/14</b></p>
+      <p>Customize bootstrap package, added year toggle, import/export toggle</p>
+      <p><b>3/7</b></p>
+      <p>Add support for Google Geo Charts</p>
+      <p><b>2/28</b></p>
+      <p>Pie Chart data-visualization for detail data</p>
+      <p>Added feature column bar</p>
+      <p><b>2/21</b></p>
+      <p>HS code search/selector</p>
+        </div>
+        </div>
+      <hr>
+      <footer>
+        <p>© Hao Xu &amp; Anthony Xu 2014</p>
+      </footer>
+    </div>
+  </div >
 
 </div >
 
