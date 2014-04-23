@@ -114,7 +114,7 @@ function selection(){
 	  shadow: "#fff00",
 	  shuffleTags: true,
 	  decel:1, //We don't stop the rotating canvas when going out
-	  maxSpeed: 0.05
+	  maxSpeed: 0.03
 	},'tags')) {
 	  // something went wrong, hide the canvas container
 	  $('#myCanvasContainer').hide();
