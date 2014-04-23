@@ -5,7 +5,7 @@ var Links=TAFFY();
 var Links_heat=TAFFY();
 var Links_co = TAFFY();
 
-var Characters_to_show =  characters_episodes_DB().limit(20)
+var Characters_to_show =  characters_episodes_DB().limit(13)
 //We always show first the first element in the card 
 var episode_card = 0;
 
@@ -330,25 +330,25 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                           var imageField = ''
                         }
                         if(seasonNum==0){
-                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField;
+                          return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/>"+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Appearance Rate:  "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField;
                         }else if(seasonNum==-1){
 
                           if(currentCharacter.first()["thumbURL"]!="noURL"){
-                            var imageField = '<br/> <img src="'+currentCharacter.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="80" height="130">'
+                            var imageField = '<br/> <img src="'+currentCharacter.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="90" height="130">'
                           }else{
                             var imageField = ''
                           }
                           var current_col = column.filter({ID:d.target})
                           if(current_col.first()["thumbURL"]!="noURL"){
-                            var imageField2 = '<img src="'+current_col.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="80" height="130">'
+                            var imageField2 = '<img src="'+current_col.first()["thumbURL"]+'" alt="..." class="img-thumbnail" width="90" height="130">'
                           }else{
                             var imageField2 = ''
                           }
                           
-                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Character: "+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Cooccurrence Rate: "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField+imageField2;
+                          return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Character:  "+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Co-occurrence Rate:  "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField+imageField2;
                         }
                         else{
-                          return "Character: "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode: "+colLabel[hccol.indexOf(d.target)]+imageField;
+                          return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode:  "+colLabel[hccol.indexOf(d.target)]+imageField;
                         };
                       })  
                    //Show the tooltip
@@ -377,7 +377,8 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
 
           var legendElementWidth = 35
           if(seasonNum==-1){
-            legendElementWidth = 25
+            legendElementWidth = 20
+            console.log("legend width:"+legendElementWidth)
           }
           var legend = svg.selectAll(".legend")
               .data([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10])
@@ -392,10 +393,23 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
             .style("fill", function(d, i) { return colors[i]; });
          
           legend.append("text")
-            .attr("class", "mono")
+            .attr("class", function(d){
+              if(seasonNum==0){
+                return "mono"
+              }else{
+                return "monoSmall"
+              }
+            })
             .text(function(d) { return (((parseInt(d)+10)/0.2).toString()+"%"); })
             .attr("width", legendElementWidth)
             .attr("x", function(d, i) { return legendElementWidth * i; })
             .attr("y", height + (cellSize*1)-3);
+          
+          legend.append("text")
+            .attr("class", "legendLabel")
+            .text("Legend")
+            .attr("x", -2.0*legendElementWidth)
+            .attr("y", height + (cellSize*1.3));
+
           }
 };

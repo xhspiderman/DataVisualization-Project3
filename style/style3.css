@@ -7,6 +7,7 @@
 	height:50px; 
 	width:50px;
 }
+body {font-family: Arial, Helvetica, sans-serif;} 
 
 /* disable text selection */
 svg *::selection {
@@ -44,7 +45,14 @@ rect.cell-hover {
 
 text.mono {
   font-size: 9pt;
-  font-family: Consolas, courier;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Consolas, courier;*/
+  fill: #aaa;
+}
+text.monoSmall {
+  font-size: 6pt;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Consolas, courier;*/
   fill: #aaa;
 }
 
@@ -53,10 +61,13 @@ text.text-selected {
 }
 
 text.text-highlight {
-  fill: #c00;
+  font-size: 103%;
+  fill: rgb(145, 0, 63);
 }
 text.text-hover {
-  fill: #00C;
+  /*fill: #00C;*/
+  font-size: 103%;
+  fill: rgb(145, 0, 63);
 }
 #tooltip {
   position: absolute;
@@ -95,13 +106,24 @@ select {
 
 .seasonLabel{
   font-size: 20pt;
-  font-family: Consolas, courier;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Consolas, courier;*/
   fill: #a63467;
 }
 .seasonLabel2{
   font-size: 16pt;
-  font-family: Consolas, courier;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Consolas, courier;*/
   fill: #a63467;
+}
+
+.rowLabel{
+  -webkit-transition:font-size 80ms; /* For Safari 3.1 to 6.0 */
+  transition:font-size 80ms;
+}
+.colLabel{
+  -webkit-transition:font-size 80ms; /* For Safari 3.1 to 6.0 */
+  transition:font-size 80ms;
 }
 
 .home-hover{
@@ -110,6 +132,14 @@ select {
 
 .pointerLabel{
   cursor:pointer;
+}
+
+
+text.legendLabel {
+  font-size: 9pt;
+  font-family: Arial, Helvetica, sans-serif;
+  /*font-family: Consolas, courier;*/
+  fill: rgb(197, 121, 154);
 }
 
 #char_card{
@@ -232,7 +262,7 @@ border-right: solid 1px #2c3e50;*/
 .menuul
 {
 opacity:0.97;
-background-color: #ecf0f1;
+background-color: rgb(243, 243, 243);
 display: table;
 float:left;
 width:100%;
