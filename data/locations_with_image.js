@@ -1,4 +1,4 @@
-[
+var locations =[
     {
         "appearances": [
             "Simpsons Roasting on an Open Fire", 
@@ -10446,4 +10446,4 @@
         ], 
         "location": "Chuck Dukewagon's All American Chow Lounge"
     }
-]
+];

@@ -45,7 +45,7 @@ with open('data', 'r+') as f:
 			# pdb.set_trace()
 			if temp.split("***")[0]==dat["location"]: 
 				if temp.split("***")[1]!="None":
-					dat["thumbURL"].append(temp.split("***")[1])    
+					dat["thumbURL"].append(temp.split("***")[1][:-1])    
 			temp = my_file.readline()
 		my_file.close()
 	f.seek(0)

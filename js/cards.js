@@ -44,7 +44,7 @@ function updateEpisode (i){
 		var card = $( "<div>" ).insertAfter( "#char_card" )
 		.attr( "id", "episode_card" );
 		var info_title = $('#episode_card').append('<p id="name">' + i[0].title + '</p>')
-		var image = $("#episode_card").append("<img id='episode_image' src=' " + i[0].thumbURL + "'></img>");
+		var image = $("#episode_card").append("<img id='episode_image' src=' " + i[0].thumbURL[0] + "'></img>");
 		var info = $("<div>").insertAfter('#episode_image')
 				.attr('id','info_episode');
 		var info_season = $('#info_episode').append('<p>' + i[0].s + 'th. Season</p>')
