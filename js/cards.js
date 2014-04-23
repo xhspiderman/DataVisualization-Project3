@@ -53,7 +53,7 @@ function updateEpisode (i){
 						.attr('id','info_episode');
 		var info_season = $('#info_episode').append('<p id="season">' + i[0].s + 'th. Season</p>')
 		var info_episode = $('#info_episode').append('<p id="episode">'+ i[0].e + 'th. Episode</p>')
-		var info_airing = $('#info_episode').append('<p id="aired">Aired in: '+ i[0].airing +'</p>')
+		var info_airing = $('#info_episode').append('<p id="aired">'+ i[0].airing +'</p>')
 		//calculate locations
 		locations_img = location_url(i[0].title);
 		locations_name = location_name(i[0].title);
