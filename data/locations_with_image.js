@@ -108,7 +108,7 @@ var locations =[
             "The Man in the Blue Flannel Pants"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img3.wikia.nocookie.net/__cb20111118202700/simpsons/images/2/27/Moes_tavern3.jpg"
         ], 
         "location": "Moe's Tavern"
     }, 
@@ -287,7 +287,7 @@ var locations =[
             "The Kid is All Right"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img4.wikia.nocookie.net/__cb20100331224100/simpsons/images/thumb/4/48/SpringfieldElementary3.jpg/270px-SpringfieldElementary3.jpg"
         ], 
         "location": "Springfield Elementary School"
     }, 
@@ -841,7 +841,7 @@ var locations =[
             "Three Men and a Comic Book", 
             "Blood Feud"
         ], 
-        "thumbURL": [], 
+        "thumbURL": ["http://img3.wikia.nocookie.net/__cb20130421182211/simpsons/images/c/ca/742_Evergreen_Terrace.png"], 
         "location": "742 Evergreen Terrace"
     }, 
     {
@@ -1288,7 +1288,7 @@ var locations =[
             "I'm Goin' to Praiseland", 
             "The Bart of War"
         ], 
-        "thumbURL": [], 
+        "thumbURL": ["http://img2.wikia.nocookie.net/__cb20100331223052/simpsons/images/thumb/f/fa/Flandersjunksale.jpg/1000px-Flandersjunksale.jpg"], 
         "location": "744 Evergreen Terrace"
     }, 
     {
@@ -2855,7 +2855,7 @@ var locations =[
             "The Homer of Seville"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img3.wikia.nocookie.net/__cb20140228194909/simpsons/images/thumb/a/aa/Springfield_opera_house.png/1000px-Springfield_opera_house.png"
         ], 
         "location": "Springfield Opera House"
     }, 
@@ -2882,7 +2882,7 @@ var locations =[
         "appearances": [
             "Simpsons Roasting on an Open Fire"
         ], 
-        "thumbURL": [], 
+        "thumbURL": ["http://img3.wikia.nocookie.net/__cb20111129120149/simpsons/images/thumb/7/7f/All_Trees_75.png/1000px-All_Trees_75.png"], 
         "location": "All Trees $75"
     }, 
     {
