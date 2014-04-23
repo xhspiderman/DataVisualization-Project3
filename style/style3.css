@@ -165,7 +165,7 @@ text.legendLabel {
   padding:5px 5px;
 }
 
-#episode_card{
+#info_episode{
   position: relative;
   left:5px;
   width:230px;
@@ -176,14 +176,14 @@ text.legendLabel {
   margin: 10px;
 }
 
-#episode_card > img{
+#info_episode > img{
   position: relative;
   top:-10px;
-  left:30px;
-  width: 150px;
+  left:10px;
+  width: 200px;
   height: 130px;
   border: 1px solid black;
-  border-radius: 200px;
+  border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   padding:5px 5px;
 }
@@ -191,27 +191,44 @@ text.legendLabel {
 #info_char{
   position: relative;
   border-radius: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   padding:10px 10px;
 }
 
-#info_char p {
+#info_char a {
+  text-decoration:none;
   position: relative;
-  top:2px;
-  left:5px;
+  left: 20px;
+  font-size: 12px;
 }
 
-#info_episode{
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-  padding:10px 10px;
+#status{
+  margin: 0px;
+  font-size: 15px;
 }
 
-#info_episode p {
+#age{
+  margin: 0px;
+  font-size: 15px;
+  float:right;
+}
+
+#gender{
   position: relative;
-  top:2px;
-  left:5px;
+  margin: 0px;
+  font-size: 15px;
+  float:right;
+}
+
+#voiced{
+  margin: 0px;
+  font-size: 15px;
+}
+
+#appearances{
+  position: relative;
+  left:30px;
+  font-size: 17px;
+  margin: 0px;
 }
 
 #buttons{
@@ -222,18 +239,54 @@ text.legendLabel {
 #prev{
   position: relative;
   float: left;
+  height: 30px;
 }
 
 #next{
   position: relative;
   float: right;
+  height: 30px;
 }
 
 #name{
   position: relative;
   left:10px;
+  text-align:center;
   font-family: arial;
-  font-size: 18px; 
+  font-size: 19px; 
+  width:200px;
+}
+#aired{
+  text-align: center;
+}
+#season{
+  position: relative;
+  left: 60px;
+  font-size: 17px;
+}
+#episode{
+  position: relative;
+  left: 68px;
+  font-size: 12px;
+}
+#location_name{
+  position: relative;
+  margin: 2px;
+  top:-10px;
+  left: 20px;
+  font-size: 15px;
+  width: 180px;
+}
+#locations{
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+}
+.pager{
+  position: relative;
+  top:-10px;
+  margin: 0px;
+  padding: 8px;
 }
 /***************************************************/
  .menuIMG{

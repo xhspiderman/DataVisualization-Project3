@@ -57751,7 +57751,7 @@ var characters_with_episode_information =[
         "name": "Marjorie \"Marge\" Bouvier Simpson", 
         "totalAppear": 433, 
         "___id": "T000004R001076", 
-        "gender": "M", 
+        "gender": "F", 
         "appearances": [
             "Simpsons Roasting on an Open Fire", 
             "Bart the Genius", 

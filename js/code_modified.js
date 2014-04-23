@@ -7,7 +7,9 @@ var Links_co = TAFFY();
 
 var Characters_to_show =  characters_episodes_DB().limit(13)
 //We always show first the first element in the card 
-var episode_card = 0;
+var location_shown = 0;
+var locations_img = [];
+var locations_name = [];
 
 
 $(main);
