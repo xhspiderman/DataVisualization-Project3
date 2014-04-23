@@ -157,8 +157,8 @@ text.legendLabel {
   position: relative;
   top:-10px;
   left:30px;
-  width: 150px;
-  height: 130px;
+  width: 160px;
+  height: 160px;
   border: 1px solid black;
   border-radius: 200px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
@@ -293,6 +293,14 @@ text.legendLabel {
   top:-10px;
   margin: 0px;
   padding: 8px;
+}
+#myCanvas{
+  border: 1px solid black;
+  border-radius: 500px;
+  height: 250px;
+  width: 250px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  margin:2px;
 }
 /***************************************************/
  .menuIMG{
