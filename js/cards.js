@@ -24,7 +24,7 @@ function updateChar (i){
 		//info_gender = $('#info_char').append('<p id="gender">'+ gender +'</p>')
 		info_voicedBy = $('#info_char').append('<p id="voiced">Voiced by: </p>')
 		for (each in i[0].voicedBy){
-			info_voicedBy.append('<a href="#data"> ' + i[0].voicedBy[each] + ' </a> </p>')
+			info_voicedBy.append('<a href="#data"> ' + i[0].voicedBy[each] + ' <br> </a>')
 		}
 		info_totalAppear = $('#info_char').append('<p id="appearances">'+ i[0].totalAppear +' Appearances</p>')
 

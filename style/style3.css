@@ -198,8 +198,8 @@ text.legendLabel {
 #info_char a {
   text-decoration:none;
   position: relative;
-  left: 20px;
-  font-size: 12px;
+  left: 15px;
+  font-size: 11px;
 }
 
 #status{
