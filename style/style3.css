@@ -144,13 +144,13 @@ text.legendLabel {
 
 #char_card{
   position: relative;
-  left:5px;
-  width:230px;
+  left:0px;
+  width:243px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 5px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-  margin: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  margin: 0px;
 }
 
 #char_card > img{
@@ -161,19 +161,20 @@ text.legendLabel {
   height: 160px;
   border: 1px solid black;
   border-radius: 200px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
   padding:5px 5px;
 }
 
 #info_episode{
   position: relative;
-  left:5px;
-  width:230px;
+  top:5px;
+  left:0px;
+  width:243px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 5px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-  margin: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  margin: 0px;
 }
 
 #info_episode > img{
@@ -184,7 +185,7 @@ text.legendLabel {
   height: 130px;
   border: 1px solid black;
   border-radius: 10px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
   padding:5px 5px;
 }
 
@@ -295,12 +296,12 @@ text.legendLabel {
   padding: 8px;
 }
 #myCanvas{
-  border: 1px solid black;
-  border-radius: 500px;
-  height: 250px;
-  width: 250px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
-  margin:2px;
+  border: 0px solid black;
+  border-radius: 3px;
+  height: 200px;
+  width: 243px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  margin:0px;
 }
 /***************************************************/
  .menuIMG{
