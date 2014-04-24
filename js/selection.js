@@ -47,6 +47,10 @@ function selection(){
 	$("#tags ul").append('<li><a href="#fourth" data-weight="8"' + '>' + '4th Grade Students' + '</a>' + '</li>');
 	$("#tags ul").append('<li><a href="#not_american" data-weight="12" ' + '>' + 'Not American' + '</a>' + '</li>');
 	$("#tags ul").append('<li><a href="#lisa_enemies" data-weight="20" ' + '>' + 'Lisa Enemies' + '</a>' + '</li>');
+	$("#tags ul").append('<li><a href="#10" data-weight="20" ' + '>' + 'Top 10' + '</a>' + '</li>');
+	$("#tags ul").append('<li><a href="#20" data-weight="20" ' + '>' + 'Top 20' + '</a>' + '</li>');
+	$("#tags ul").append('<li><a href="#50" data-weight="20" ' + '>' + 'Top 50' + '</a>' + '</li>');
+	$("#tags ul").append('<li><a href="#100" data-weight="20" ' + '>' + 'Top 100' + '</a>' + '</li>');
 	$("#tags ul li a").click(function(selector) {
 		//Handle the selected group when clicked
 		var selector = [];
@@ -62,6 +66,7 @@ function selection(){
 	  		//Obtain values from the db depending on the selection
             var tempQuery_name = characters_episodes_DB({name:{like:selector[each]}})
             var tempQuery_page = characters_episodes_DB({page:{is:selector[each]}})
+           
 
 	  		if (tempQuery_name.get().length != 0)
 	  		{
@@ -84,6 +89,10 @@ function selection(){
 		$("select").multipleSelect("setSelects", group_select)
 		// This changes the global characters to show variable
 		Characters_to_show =  characters_episodes_DB({page:group_select});
+		if (type=="10") Characters_to_show = characters_episodes_DB().limit(13);
+       	if (type=="20") Characters_to_show = characters_episodes_DB().limit(20);
+        if (type=="50") Characters_to_show = characters_episodes_DB().limit(50);
+        if (type=="100") Characters_to_show = characters_episodes_DB().limit(100);
 		//Initialize the cards 
 		updateChar(Characters_to_show.get());
 		plotMain();
