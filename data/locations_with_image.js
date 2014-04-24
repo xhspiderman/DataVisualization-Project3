@@ -586,7 +586,7 @@ var locations =[
             "Treehouse of Horror XX"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img1.wikia.nocookie.net/__cb20100805151420/simpsons/images/2/2f/Krusty_burger.jpg"
         ], 
         "location": "Krusty Burger"
     }, 
@@ -753,7 +753,7 @@ var locations =[
             "Gone Maggie Gone"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img4.wikia.nocookie.net/__cb20100418215233/simpsons/images/thumb/f/fb/Lard_lad_2.PNG/250px-Lard_lad_2.PNG"
         ], 
         "location": "Lard Lad Donuts"
     }, 
@@ -2133,7 +2133,7 @@ var locations =[
             "Kamp Krusty"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img4.wikia.nocookie.net/__cb20111228014250/simpsons/images/3/3c/Stars.png"
         ], 
         "location": "Kamp Krusty (location)"
     }, 
@@ -2348,7 +2348,7 @@ var locations =[
     {
         "appearances": [], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://simpsonswiki.com/w/images/f/f6/Spruce_Caboose.png"
         ], 
         "location": "Spruce Caboose"
     }, 
@@ -2685,7 +2685,7 @@ var locations =[
     {
         "appearances": [], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img3.wikia.nocookie.net/__cb20101114131731/simpsons/images/thumb/8/88/Locationsimp.jpg/250px-Locationsimp.jpg"
         ], 
         "location": "Downtown Springfield"
     }, 
@@ -4627,7 +4627,7 @@ var locations =[
     {
         "appearances": [], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img1.wikia.nocookie.net/__cb20111114211841/simpsons/images/thumb/a/a5/Krustyland.PNG/250px-Krustyland.PNG"
         ], 
         "location": "Krustyland"
     }, 
@@ -7414,7 +7414,7 @@ var locations =[
             "The D'oh-cial Network"
         ], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img1.wikia.nocookie.net/__cb20120126034906/simpsons/images/thumb/f/f3/Springface.jpg/250px-Springface.jpg"
         ], 
         "location": "SpringFace"
     }, 
@@ -10442,7 +10442,7 @@ var locations =[
     {
         "appearances": [], 
         "thumbURL": [
-            "data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D"
+            "http://img2.wikia.nocookie.net/__cb20140113185646/simpsons/images/thumb/e/ed/Chuck_Dukewagon%27s_All-American_Chow_Lounge.jpg/250px-Chuck_Dukewagon%27s_All-American_Chow_Lounge.jpg"
         ], 
         "location": "Chuck Dukewagon's All American Chow Lounge"
     }
