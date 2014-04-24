@@ -216,7 +216,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
               return ""
             }
             else if(seasonNum==-1){
-              return "Co-ocurrence"
+              return "Concurrence"
             }
             else{
               return "Season "+seasonNum
@@ -347,7 +347,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
                             var imageField2 = ''
                           }
                           
-                          return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Character:  "+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Co-occurrence Rate:  "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField+imageField2;
+                          return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Character:  "+colLabel[hccol.indexOf(d.target)]+"<br/>"+"Concurrence Rate:  "+((parseInt(d.value)+10)/0.2).toString()+"%"+imageField+imageField2;
                         }
                         else{
                           return "Character:  "+rowLabel[hcrow.indexOf(d.source)]+"<br/> Episode:  "+colLabel[hccol.indexOf(d.target)]+imageField;
