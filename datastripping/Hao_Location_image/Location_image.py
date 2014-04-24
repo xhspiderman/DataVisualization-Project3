@@ -35,18 +35,34 @@ import string
 
 
 
+# with open('data', 'r+') as f:
+# 	data = json.load(f)
+# 	for dat in data:
+# 		dat["thumbURL"]=[]
+# 		my_file = open('location.txt', 'r')
+# 		temp = my_file.readline()
+# 		while temp:
+# 			# pdb.set_trace()
+# 			if temp.split("***")[0]==dat["location"]: 
+# 				if temp.split("***")[1]!="None":
+# 					dat["thumbURL"].append(temp.split("***")[1][:-1])    
+# 			temp = my_file.readline()
+# 		my_file.close()
+# 	f.seek(0)
+# 	json.dump(data, f, indent=4)
+
 with open('data', 'r+') as f:
 	data = json.load(f)
-	for dat in data:
-		dat["thumbURL"]=[]
-		my_file = open('location.txt', 'r')
-		temp = my_file.readline()
-		while temp:
-			# pdb.set_trace()
-			if temp.split("***")[0]==dat["location"]: 
-				if temp.split("***")[1]!="None":
-					dat["thumbURL"].append(temp.split("***")[1][:-1])    
-			temp = my_file.readline()
-		my_file.close()
+	# for dat in data:
+	# 	dat["thumbURL"]=[]
+	# 	my_file = open('location.txt', 'r')
+	# 	temp = my_file.readline()
+	# 	while temp:
+	# 		# pdb.set_trace()
+	# 		if temp.split("***")[0]==dat["location"]: 
+	# 			if temp.split("***")[1]!="None":
+	# 				dat["thumbURL"].append(temp.split("***")[1][:-1])    
+	# 		temp = my_file.readline()
+	# 	my_file.close()
 	f.seek(0)
 	json.dump(data, f, indent=4)
