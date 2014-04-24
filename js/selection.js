@@ -26,7 +26,7 @@ function selection(){
 					plotCo();
 	            },
 	            onOptgroupClick: function(view) {
-	             	console.log($("select").multipleSelect("getSelects","text"))
+	             	// console.log($("select").multipleSelect("getSelects","text"))
 	            } 
 	});
 
