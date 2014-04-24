@@ -374,6 +374,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
               updateChar(charact_card);
             }
+            location_shown=0;
             });
       if(seasonNum==0 || seasonNum==-1){
 

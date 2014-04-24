@@ -7,7 +7,8 @@ function updateChar (i){
 		var card = $( "<div>" ).insertAfter( "#tags" )
 		.attr( "id", "char_card" );
 		var info_name = $('#char_card').append('<p id="name">' + i[0].name + '</p>')
-		var image = $("#char_card").append("<img id='char_image' src=' " + i[0].thumbURL + "'></img>");
+		if (i[0].thumbURL.length !=0) var image = $("#char_card").append("<img id='char_image' src=' " + i[0].thumbURL + "'></img>");
+		else var image = $("#char_card").append("<img id='char_image' src='nophoto.jpg'></img>");
 		var info = $("<div>").insertAfter('#char_image')
 				.attr('id','info_char');
 		if (i[0].gender == 'M') var gender = 'Male';
@@ -57,16 +58,8 @@ function updateEpisode (i){
 		//calculate locations
 		locations_img = location_url(i[0].title);
 		locations_name = location_name(i[0].title);
-		var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
-		
-		
-		//Manage the clicking on the voicedBy character card
-		$( "#episode_card a" ).click(function() {
-	  		Characters_to_show=characters_episodes_DB({voicedBy:{"like": this.text}})
-	  		//Plot the heatmap again with the new selection
-	  		plotMain();
-  			plotCo();
-		});
+		if (locations_img[location_shown].length != 0 && locations_img[location_shown]!="None") var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
+		else var image = $("#info_episode").append("<img id='episode_image' src='noimage.jpg'></img>");
 
 		//Manage the clicking on next and previous for locations in episode card
 		$( "#next" ).click(function() {
@@ -76,7 +69,8 @@ function updateEpisode (i){
 	  		$('#episode_image').remove()
 	  		$('#location_name').remove()
 	  		var location_name = $('#info_episode').append('<p id="location_name">' + locations[location_shown].location + '</p>')
-	  		var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
+	  		if (locations_img[location_shown].length != 0 && locations_img[location_shown]!="None") var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
+	  		else var image = $("#info_episode").append("<img id='episode_image' src='noimage.jpg'></img>");
 		});
 		$( "#prev" ).click(function() {
 			if (location_shown > 0) location_shown = location_shown - 1;
@@ -85,7 +79,8 @@ function updateEpisode (i){
 	  		$('#episode_image').remove()
 	  		$('#location_name').remove()
 	  		var location_name = $('#info_episode').append('<p id="location_name">' + locations[location_shown].location + '</p>')
-	  		var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
+	  		if (locations_img[location_shown].length != 0 && locations_img[location_shown]!="None") var image = $("#info_episode").append("<img id='episode_image' src=' " + locations_img[location_shown][0] + "'></img>");
+	  		else var image = $("#info_episode").append("<img id='episode_image' src='noimage.jpg'></img>");
 		});
 
 		//we use this function to calculate the locations for each episode
@@ -102,7 +97,7 @@ function updateEpisode (i){
 			var location_name = [];
 			locations = locations_DB({appearances:{"like": episode}}).get();
 			$('#info_episode').append('<p id="locations"><u> Locations in the episode</u></p>')
-			if (locations_img.length > 1) var buttons = $("#info_episode").append('<ul class="pager"><li class="Next"><a id="prev" href="#info_episode">&larr; Prev</a></li><li class="next"><a id="next" href="#info_episode">Next &rarr;</a></li></ul>')
+			if (locations_img.length > 1) var buttons = $("#info_episode").append('<ul class="pager"><li class="Next"><a id="prev" href="#1">&larr; Prev</a></li><li class="next"><a id="next" href="#2">Next &rarr;</a></li></ul>')
 			var location_name = $('#info_episode').append('<p id="location_name">' + locations[0].location + '</p>')
 			for (each in locations){
 				location_name.push(locations[each].location)
