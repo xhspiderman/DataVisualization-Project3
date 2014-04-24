@@ -89,11 +89,13 @@ function selection(){
 		$("select").multipleSelect("setSelects", group_select)
 		// This changes the global characters to show variable
 		Characters_to_show =  characters_episodes_DB({page:group_select});
-		if (type=="10") Characters_to_show = characters_episodes_DB().limit(13);
-       	if (type=="20") Characters_to_show = characters_episodes_DB().limit(20);
-        if (type=="50") Characters_to_show = characters_episodes_DB().limit(50);
-        if (type=="100") Characters_to_show = characters_episodes_DB().limit(100);
-		//Initialize the cards 
+		if (type=="10") Characters_to_show = characters_episodes_DB().limit(13).order("totalAppear desc");
+       	if (type=="20") Characters_to_show = characters_episodes_DB().limit(20).order("totalAppear desc");
+        if (type=="50") Characters_to_show = characters_episodes_DB().limit(50).order("totalAppear desc");
+        if (type=="100") Characters_to_show = characters_episodes_DB().limit(100).order("totalAppear desc");
+		// //Initialize the cards 
+		// console.log('top')
+		// console.log(Characters_to_show.get())
 		updateChar(Characters_to_show.get());
 		plotMain();
 		plotCo();
