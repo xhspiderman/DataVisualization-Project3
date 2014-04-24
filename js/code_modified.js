@@ -61,7 +61,7 @@ function plotSeason(seasonNum){
 function data(seasonNum){
   row_objects = Characters_to_show // selected characters
   row_objects = row_objects.order("totalAppear desc")
-  console.log(row_objects.get())
+  // console.log(row_objects.get())
   column_objects = episodes_DB({s:seasonNum}).order("s asec, e asec") // selected episodes
   // Add an id field for each episode record
   column_objects.each(function (record,recordnumber) {
@@ -364,7 +364,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
             })
             .on("click", function(d,i) { 
             if(seasonNum > 0){ 
-              console.log(rowLabel[hcrow.indexOf(d.source)]+","+colLabel[hccol.indexOf(d.target)]);
+              // console.log(rowLabel[hcrow.indexOf(d.source)]+","+colLabel[hccol.indexOf(d.target)]);
               charact_card = characters_episodes_DB({page:{"is": rowLabel[hcrow.indexOf(d.source)]}}).get()
               episode_card = episodes_DB({title:{"is": colLabel[hccol.indexOf(d.target)]}}).get()
               updateChar(charact_card);
@@ -381,7 +381,7 @@ function Plot(data, seasonNum, divSelector, hcrow, hccol, rowLabel, colLabel,row
           var legendElementWidth = 35
           if(seasonNum==-1){
             legendElementWidth = 19
-            console.log("legend width:"+legendElementWidth)
+            // console.log("legend width:"+legendElementWidth)
           }
           var legend = svg.selectAll(".legend")
               .data([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10])

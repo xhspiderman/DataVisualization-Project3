@@ -19,11 +19,11 @@ $("select").multipleSelect({
             filter: true,
             placeholder: "Select a group to visualize",
             onClick: function(view) {
-               console.log($("select").multipleSelect("getSelects","text"))
+               // console.log($("select").multipleSelect("getSelects","text"))
                //$("select").multipleSelect("getSelects","text")
             },
             onOptgroupClick: function(view) {
-             console.log($("select").multipleSelect("getSelects","text"))
+             // console.log($("select").multipleSelect("getSelects","text"))
             } 
 });
 
@@ -118,7 +118,7 @@ function data(){
   }
 
   inputData = tempLinks_Num().get()
-  console.log(tempLinks_Num().get())
+  // console.log(tempLinks_Num().get())
   //*********************************************
 }
 
