@@ -34,10 +34,12 @@ function updateChar (i){
 			var querystring = this.text
 			Characters_to_show = characters_episodes_DB(function () {
 			    for(var i=0; i<this.voicedBy.length;i++){
-				    return (this.voicedBy[i].trim() == querystring) ? true : false;
+				    if(this.voicedBy[i].trim() == querystring.trim()){
+				    	return true
+				    }
 			    }
 			    return false
-			})
+			});
 	  		//Characters_to_show=characters_episodes_DB({voicedBy:{"like": this.text}})
 	  		//Plot the heatmap again with the new selection
 	  		plotMain();
@@ -65,7 +67,7 @@ function updateEpisode (i){
 		$( "#next" ).click(function() {
 	  		if (location_shown < locations_img.length-1) location_shown = location_shown + 1;
 	  		else location_shown = 0;
-	  		console.log(location_shown)
+	  		// console.log(location_shown)
 	  		$('#episode_image').remove()
 	  		$('#location_name').remove()
 	  		var location_name = $('#info_episode').append('<p id="location_name">' + locations[location_shown].location + '</p>')
@@ -75,7 +77,7 @@ function updateEpisode (i){
 		$( "#prev" ).click(function() {
 			if (location_shown > 0) location_shown = location_shown - 1;
 	  		else location_shown = locations_img.length-1;
-	  		console.log(location_shown)
+	  		// console.log(location_shown)
 	  		$('#episode_image').remove()
 	  		$('#location_name').remove()
 	  		var location_name = $('#info_episode').append('<p id="location_name">' + locations[location_shown].location + '</p>')
@@ -86,7 +88,15 @@ function updateEpisode (i){
 		//we use this function to calculate the locations for each episode
 		function location_url(episode){
 			var location_url = [];
-			locations = locations_DB({appearances:{"like": episode}}).get();
+			locations = locations_DB(function(){
+			    for(var i=0; i<this.appearances.length;i++){
+				    if(this.appearances[i].trim() == episode.trim()){
+				    	return true
+				    }
+			    }
+			    return false
+			});
+			locations=locations.get()
 			for (each in locations){
 				location_url.push(locations[each].thumbURL)
 			}
@@ -95,7 +105,20 @@ function updateEpisode (i){
 
 		function location_name(episode){
 			var location_name = [];
-			locations = locations_DB({appearances:{"like": episode}}).get();
+			locations = locations_DB(function(){
+			    for(var i=0; i<this.appearances.length;i++){
+				    if(this.appearances[i].trim() == episode.trim()){
+				    	return true
+				    }
+			    }
+			    return false
+			});
+			// console.log("locations1")
+			// console.log(locations)
+			locations=locations.get()
+			// console.log("locations2")
+			// console.log(locations)
+			// locations = locations_DB({appearances:{"like": episode}}).get();
 			$('#info_episode').append('<p id="locations"><u> Locations in the episode</u></p>')
 			if (locations_img.length > 1) var buttons = $("#info_episode").append('<ul class="pager"><li class="Next"><a id="prev" href="#1">&larr; Prev</a></li><li class="next"><a id="next" href="#2">Next &rarr;</a></li></ul>')
 			if (locations_img.length != 0) var location_name = $('#info_episode').append('<p id="location_name">' + locations[0].location + '</p>')
