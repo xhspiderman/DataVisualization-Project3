@@ -1,0 +1,378 @@
+<!--Main page for the html of the application Simpsons Visualization-->
+<!--authors: Alberto Gonzalez, Hao Xu date:April 2014-->
+<!doctype html>
+<html>
+  <head>
+      <title>Simpsons Visualization</title>
+      <!--External Libraries js -->
+      <script src="lib/jquery/jquery-1.11.0.min.js"></script>
+      <script src="lib/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+      <script src="lib/multiple-select-master/jquerymultipleselect.js"></script>
+      <script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+      <script src="lib/D3/d3.v3.min.js"></script>
+      <script src="lib/taffy/taffy.js"></script>
+      <script src="lib/tagCanvas/jquery.tagcanvas.js"></script>
+      <!--Internal js files-->
+      <script src="data/episodes.js"></script>
+      <script src="data/episodes_info.js"></script>
+      <script src="data/characters.js"></script>
+      <script src="data/characters_image_with_eps.js"></script>
+      <script src="data/characters_info.js"></script>
+      <script src="data/locations_with_image.js"></script>
+      <script src="js/cards.js"></script>
+      <!-- importing database -->
+      <script>
+
+      var episodes_DB = TAFFY(episodes); //Episodes from Andy
+      var episodes_info_DB = TAFFY(episodes_info); //Episodes with image from us
+      var characters_DB = TAFFY(characters);    // Characters from Andy
+      var characters_info_DB = TAFFY(characters_info); // characters with image from us
+      var locations_DB = TAFFY(locations);  //locations from Andy
+      var characters_episodes_DB = TAFFY(characters_with_episode_information);
+      var menutoggle=1
+      </script>
+      <!--Stylesheets-->
+      <link href="lib/bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="lib/multiple-select-master/multiple-select.css">
+      <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="style/style3.css">
+
+  </head>
+  <body> 
+
+  <div id='cusmenubar'  class='row draggable'  style='position:fixed;top:0px;left:0px;z-index:999;width:100%;margin-left:0px !important;margin-right:0px !important;'>
+
+      <ul class='col-xs-12 menuul' style=''>
+      <li  class='col-xs-2 menuim text-center'><img src="simpsons_logo2.jpg" alt="We Are Family" class="img-circle menuIMG" style='border:2px solid #c7bfbf;'>
+        </li>
+        <li class='col-xs-2 menuli text-center' style=''>
+               <a class="searchbychar" href="#" data-target="characters" style="text-decoration: none">Characters</a>
+        </li>
+        <li class='col-xs-2 menuli text-center' style=''>
+               <a class="searchbychar" href="#" data-target="chart_co" style="text-decoration: none">Co-occurrence</a>
+        </li>
+        <li class='col-xs-2 menuli text-center' id='instructionsdivmenu' style=''>
+          Instructions
+        </li>
+        <li class='col-xs-2 menuli text-center' id="interestingdivmenu" style=''>
+          Interesting Findings
+        </li>
+        <li class='col-xs-2 menuli text-center' id='otherinformationdivmenu' style=''>
+          Other Information
+        </li>
+      </ul>
+
+  </div>
+<div id='apps' style="padding-left:10px;">
+
+    <br>
+
+<!--   <div id='characters' class='row ' style='background-color:white;padding-left:10px;'>
+
+  </div>
+  <hr class="featurette-divider">
+  <div id='coocurrance' class='row ' style='background-color:white; padding-left:10px;'>
+
+  </div> -->
+
+<!-- *************************************** -->
+    <div class="row"  style='padding-left:4px;'>
+      <div id="tooltip" class="hidden" style="z-index:10;">
+        <p><span id="value"></p>
+      </div>
+      <div id="menu" class="col-xs-2" >
+        <br>
+        <br>
+        <br>
+        <div id="select">
+          <select multiple="multiple" style='width:245px;'>
+          </select>
+        </div>
+        <div id="myCanvasContainer">
+          <canvas width="270" height="150" id="myCanvas">
+            <p>Anything in here will be replaced on browsers that support the canvas element</p>
+          </canvas>
+        </div>
+        <div id="tags">
+          <ul></ul>
+        </div>
+      </div>
+      <div class="col-xs-10" style="padding-left:0px;">
+          <div id="characters">
+          <div class='col-xs-12' id="chart_main" style='overflow:auto;padding-left:0px;'></div>
+          <div class='col-xs-12' id="chart" style='overflow:auto;padding-left:0px;'></div>
+          </div>
+          <hr class='col-xs-12 featuredivider' style="margin-left:43px; height:2px;background-color:rgb(247, 247, 247);">
+          <div class='col-xs-12' id="chart_co" style='overflow:auto;'></div>
+      </div>
+    </div>
+<!-- ********************************************* -->
+</div>
+
+<div id='instructionsdiv'>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>We Are Family</h1>
+        <p>Here you will discover:<em> What important characters at the beginning disappeared later on? What important characters only appeared later in the series? Which characters are always seen together? Which voice actors voiced the most characters in a single episode? Which characters appeared (even briefly) every season (or most seasons)?</em></p>
+        <p class="text-muted"><small>In this project we take a look at 25 years of 'The Simpsons.'There are about 550 episodes by the end of the current 25th season with 200 main characters, 2500 total characters (including people, animals, etc) voiced by 12 major voice actors. All of them are visualized in this application</small></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href='https://github.com/xhspiderman/DataVisualization-Project3'>Learn more</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Video Intro <span class="text-muted">details from the author</span></h2>
+            <p class="lead">One video introduction to dive into the usage of this app <span class="glyphicon glyphicon-hand-right"></span></p>
+          </div>
+          <div class="col-md-7">
+           <!-- <img src="img/the_simpsons.jpg" alt="Smiley face" width="400" height="290"> -->
+           <iframe width="640" height="360" src="//www.youtube.com/embed/psyEWBTWQKM?rel=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <br>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/nav.png" alt="Pie Chart">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Navigation Bar <span class="text-muted"> togglable &amp; draggable</span></h2>
+            <p class="lead">When the page is first loaded you can see the page navigation functions at the top of the page. Nav bar is used to navigate between different tabs and you can always toggle on the app icon to collapse the Nav Bar in order to have a better view in the application, you can also drag the nav bar to anywhere you like.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Heat Map(main) <span class="text-muted"> hover effects &amp; ordering</span></h2>
+            <p class="lead">The heat map gives you an overview about the appearance in each season, the higher the appear rate, the darker the color is. And a legend mark is also give in the bottom of the graph for quick reference. You can always hover on each block to see the highlighted name and season as well as the character's pic.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/heatHover.png" alt="top25iehover">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/seasonDetail.png" alt="ieUSmap">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Heat Map(detail)<span class="text-muted"> pick interesting seasons</span></h2>
+            <p class="lead">You can get to heat map detail view by click one of the seasons in home page, whether or not a character appears in that episode is visualized as a color block. By hovering on the block, you can get similar info like before. And by clicking on each block, two name cards about episode and character will be generated.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Name Card <span class="text-muted"> pics &amp; info</span></h2>
+            <p class="lead">Two types of cards are generated, one about character and one about episode. Detailed information will be listed. You can always click on the "voicedBy" attribute to pick all characters voiced by that character.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/nameCard.png" style="height:230px;" alt="ie hover">
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/tagSelector.png" alt="ie toggle">
+          </div>
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Selector<span class="text-muted"> checkbox &amp; cloud tag</span></h2>
+            <p class="lead">Two ways of selecting characters are provided, one is cloud tag which give you some random interesing groups to explore and the other give you checkbox style of selecing, search function is also included. By going to different areas of cloud tags you can rotate the tags correspondingly.</p>
+          </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+          <div class="col-md-5">
+            <h2 class="featurette-heading">Co-occurrence Matrix<span class="text-muted"> Relationship Visualization</span></h2>
+            <p class="lead">This cooccurrence matrix enables you to view the bond between each pair of characters by showing how many episodes they both appear among all the Simpson series. The stronger the bond, the darker the color block, detailed info is also provided by hovering on each block.</p>
+          </div>
+          <div class="col-md-7">
+            <img class="featurette-image img-responsive" src="img/occurrence.png" alt="table toggle">
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id='interestingdiv'>
+
+      <div class="jumbotron">
+        <div class="container">
+          <br>
+          <h1>Interesting Findings</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="row featurette">
+          <div class="col-md-12">
+             <h2 class="featurette-heading"> Milhouse Dissapearance <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>When checking how Milhouse evolutes through the series you can notize that he suddenly disapears during the season 11 to 21. With one exception in season 19th which he appears in only one episode.</p>
+            <h2 class="featurette-heading"> Homer Shows off! <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>Homer appears in each and everyone of the episodes of the simpsons. Bart appears in all the seasons until season 22 where he suddenly disapears for 10 episodes of a total of 22. Marge has a similar evolution she appears in all the episodes before season 20, but in season 23 she only appears in 2 episodes not apparing at all in season 24. Seems like marge and Bart are returning again to appear in season 25 (the last season casted) where they appear in almost every casted episode.</p>
+            
+            <h2 class="featurette-heading"> Top 10 podium! <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>1. Homer: 539</p><p>2. Lisa: 518</p><p>3. Bart: 518</p><p>4. Marge: 433</p><p>5. Barney Gumble :273</p><p>6. Burns :248</p><p>7. Dr Jibbert :244</p><p>8. Skinner: 222</p><p>9. Willie: 222</p><p>10. Wiggum: 204</p><p>Something that pop's up imediately is that the three members of the simpsons Family appear almost as twice as the rest of the top ten characters, giving the feeling clearly that the Simpsons are a family serie</p>
+
+            <h2 class="featurette-heading"> Maggie <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>Maggie does not appear in the serie until the third season and only appears 11 times during the whole serie!</p>
+            
+            <h2 class="featurette-heading"> Lisa's Class <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>32 different students share class with Lisa during the whole serie. Becky and Ralph Wiggum are the characters that appear more with 107 and 70 appearances respectively appearing at least in a few episodes in most of the seasons</p>
+
+            <h2 class="featurette-heading"> All seasons <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>Only Homer Simpson, Bart Simpson and Charles Montgomery Burns appear in all seasons of the serie</p>
+
+            <h2 class="featurette-heading"> Concurrence <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>There are several things that pop up when looking at the concurrence heatmap. Homer, Bart and Marge trend to appear together this is normal because they appear in most of the episodes. Barney trends to appear with them a lot, as well does Mr. Burns.</p><p>Sherry and terry the twins trend to appear together in the same episode.</p><p>Skinner trends to appear in episodes where some students of the school appear as well.</p>
+
+            <h2 class="featurette-heading"> Mayor Quimby strange evolvment <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>Mayor Quimby appears at the beggining of the serie assidiously appearing in 75% of the episodes of season 4 and suddenly disapears from season 11 to 22</p>
+
+          </div>
+          </div>
+      </div>
+    </div >
+
+</div >
+
+<div id='otherinformationdiv'>
+    
+      <div class="jumbotron">
+        <div class="container">
+          <br>
+          <h1>Other Informations</h1>
+          <p>Here you will find more details about: <strong> Data Source</strong> | <strong>  Source Code</strong> | <strong>  Project Progress List</strong></p>
+          <p><a href='https://github.com/xhspiderman/DataVisualization-Project3' class="btn btn-primary btn-lg" role="button">Learn More</a></p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="row featurette">
+          <div class="col-md-12">
+            <h2 class="featurette-heading">Data Source <span class="text-muted"><small><span class="glyphicon glyphicon-search"></span></small></span></h2>
+            <p class="lead"><p>The data used for this visualization is provided by the Simpson Wiki website. It documents all information about "The Simpsons", including characters, episodes, locations and images. The processed data in .json format can be downloaded in <a href="https://github.com/xhspiderman/DataVisualization-Project3/tree/master/data"> the data foler of repository</a>.</p> 
+      <p>From there, the data is converted into a format suitable for Google Charts to create the visualizations you see.</p></p>
+          </div>
+          </div>
+          <hr class="featurette-divider">
+          <div class="row featurette">
+          <div class="col-md-12">
+            <h2 class="featurette-heading">Source Code <span class="text-muted"><small><span class="glyphicon glyphicon-download-alt"></span></small></span></h2>
+            <p class="lead"><p>The code can be downloaded 
+      <a href="https://github.com/xhspiderman/DataVisualization-Project3">here</a>.
+      After you download the files, open the main_heatmap_Hao.html in a web browser to view the 
+      the visualizations. Explore the various visualizations and find some interesting 
+      things about the Simpson Family.</p></p>
+          </div>
+          </div>
+          <hr class="featurette-divider">
+          <div class="row featurette">
+          <div class="col-md-12">
+            <h2 class="featurette-heading">Project Progress List <span class="text-muted"><small><span class="glyphicon glyphicon-list"></span></small></span></h2>
+          <p class="lead">Alberto's Progress</p>
+        <p><b>3/20</b></p>
+        <p>Collected Info and data for the application</p>
+        <p><b>4/7</b></p>
+        <p>Redo dbs for better integration, Added Information. Created Sankey (not used)</p>
+        <p><b>4/11</b></p>
+        <p>Created Groups and added the tag cloud</p>
+        <p><b>4/18</b></p>
+        <p>Created the cards for the characters</p>
+        <p><b>4/23</b></p>
+        <p>Finish styling and some bugs, added locations to episodes</p>
+        <p class="lead">Hao's Progress</p>
+        <p><b>3/20</b></p>
+        <p>Collected Info and data for the application</p>
+        <p><b>4/7</b></p>
+        <p>Created Sankey diagram (not used) Created Heatmaps</p>
+        <p><b>4/11</b></p>
+        <p>Enhace heatmaps, concurrence heatmap</p>
+        <p><b>4/18</b></p>
+        <p>Styled the main application</p>
+        <p>Added feature column bar</p>
+        <p><b>4/23</b></p>
+        <p>Finish styling and some bugs, added locations to episodes</p>
+          </div>
+          </div>
+      </div>
+    </div >
+
+</div >
+  <hr class='col-xs-12 featuredivider' style="height:2px;background-color:rgb(247, 247, 247);">
+  <footer class="row">
+  <p class="col-md-2 col-md-offset-5"> <span class="glyphicon glyphicon-copyright-mark"></span> Hao Xu &amp; Alberto 2014</p>
+  </footer>
+    <script>
+    //Animation 
+    $('#otherinformationdiv').hide()
+    $('#instructionsdiv').hide()
+    $('#interestingdiv').hide()
+    $( ".draggable" ).draggable({
+        start: function(event, ui) {
+            $(this).addClass('noclick');
+        }
+    });
+    $( '.searchbychar' ).on('click', function(event) {
+        event.preventDefault();
+        var target = "#" + $(this).data('target');
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 200);
+        $('#apps').show('fast')
+        $('#instructionsdiv').hide()
+        $('#otherinformationdiv').hide()
+        $('#interestingdiv').hide()
+    });
+    $('.menuim').on('click',function(event){
+      if ($(this).closest('#cusmenubar').hasClass('noclick')) {
+            $(this).closest('#cusmenubar').removeClass('noclick');
+        }
+        else {
+        if(menutoggle===1){
+        $(this).siblings().hide('fast')
+        $(this).closest('ul').css("background-color", "transparent")
+        $(this).find('img').css({width : '35px',height : '35px'})
+            // $( "#draggable" ).draggable();
+        menutoggle=0;
+        }else{
+        $(this).siblings().show('fast') 
+        $(this).closest('ul').css("background-color", "#ecf0f1")
+        $(this).find('img').css({width : '60px',height : '60px'})
+        $(this).closest('#cusmenubar').css({top : '0px', left : '0px'})
+        // $( "#draggable" ).draggable();
+        menutoggle=1;
+        }
+          }
+    })
+    $('#instructionsdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').hide('fast')
+      $('#interestingdiv').hide('fast')
+      $('#instructionsdiv').show('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    $('#otherinformationdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').show('fast')
+      $('#instructionsdiv').hide('fast')
+      $('#interestingdiv').hide('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    $('#interestingdivmenu').on('click',function(event){
+      $('#apps').hide('fast')
+      $('#otherinformationdiv').hide('fast')
+      $('#instructionsdiv').hide('fast')
+      $('#interestingdiv').show('fast')
+      $("html, body").animate({ scrollTop: 0 }, "fast");
+    })
+    </script>
+  </body>
+  <script type="text/javascript" src="js/code_modified.js"></script>
+  <!-- <script type="text/javascript" src="js/generate.js"></script> -->
+  <script src="js/selection.js"></script>
+</html>
